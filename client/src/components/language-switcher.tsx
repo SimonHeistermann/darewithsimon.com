@@ -1,35 +1,41 @@
 import { useLanguage } from "@/hooks/use-language";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+type Language = "en" | "de";
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
+  const languages: Language[] = ["en", "de"];
+
+  const activeIndex = languages.indexOf(language);
 
   return (
-    <div className="flex items-center space-x-1 bg-[var(--muted)] rounded-full p-1">
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => setLanguage("en")}
-        className={`text-xs px-3 py-1 h-7 rounded-full transition-colors ${
-          language === "en"
-            ? "bg-[var(--brand-primary)] text-white"
-            : "text-[var(--foreground)] hover:bg-[var(--muted-foreground)/10] hover:text-[var(--foreground)]"
-        }`}
-      >
-        EN
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => setLanguage("de")}
-        className={`text-xs px-3 py-1 h-7 rounded-full transition-colors ${
-          language === "de"
-            ? "bg-[var(--brand-primary)] text-white"
-            : "text-[var(--foreground)] hover:bg-[var(--muted-foreground)/10] hover:text-[var(--foreground)]"
-        }`}
-      >
-        DE
-      </Button>
+    <div className="relative flex w-fit rounded-full bg-[var(--muted)] p-1">
+      <motion.div
+        className="h-7 w-14 rounded-full bg-[var(--brand-primary)] absolute z-0"
+        initial={false}
+        animate={{
+          transform: `translateX(${activeIndex * 100}%)`,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 30,
+        }}
+      />
+      <div className="relative z-10 flex">
+        {languages.map((lang) => (
+          <button
+            key={lang}
+            onClick={() => setLanguage(lang)}
+            className={`text-xs px-3 py-1 h-7 w-14 rounded-full transition-colors duration-200 ${
+              language === lang ? "text-white" : "text-[var(--foreground)]"
+            }`}
+          >
+            {lang.toUpperCase()}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

@@ -20,8 +20,8 @@ export default function LegalNotice() {
                     <p className="font-medium">Simon Heistermann</p>
                     <p>Firma: Simon Heistermann</p>
                     <p>Frontend-Entwickler & Content Creator</p>
-                    <p>[Straße und Hausnummer]</p>
-                    <p>[PLZ] [Ort]</p>
+                    <p>Mutter-Teresa-Weg 6</p>
+                    <p>46325 Borken</p>
                     <p>Deutschland</p>
                   </div>
                 </section>
@@ -33,23 +33,23 @@ export default function LegalNotice() {
                       <p>
                         <strong>E-Mail:</strong>{' '}
                         <a
-                          href="mailto:[deine@email.de]"
+                          href="mailto:buisness@darewithsimon.com"
                           className="text-primary hover:text-primary/80 underline"
                           rel="noopener noreferrer"
                         >
-                          [deine@email.de]
+                          buisness@darewithsimon.com
                         </a>
                       </p>
                       <p>
-                        <strong>Telefon:</strong>{' '}
+                        Hinweise zum Datenschutz finden Sie in unserer{" "}
                         <a
-                          href="tel:+49XXXXXXXXX"
+                          href="/datenschutz"
                           className="text-primary hover:text-primary/80 underline"
                           rel="noopener noreferrer"
                         >
-                          +49 XXX XXX XXXX
-                        </a>
-                      </p>
+                          Datenschutzerklärung
+                        </a>.
+                       </p>
                     </div>
                 </section>
                 <section className="mb-8">
@@ -58,7 +58,7 @@ export default function LegalNotice() {
                   </h2>
                   <p>
                     Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                    <strong>DE[deine vollständige USt-ID]</strong>
+                    <strong>DE454100405</strong>
                   </p>
                 </section>
                 <section className="mb-8">

@@ -46,7 +46,7 @@ export default function NotFound({ currentPath, suggestions = [] }: NotFoundProp
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="block w-full text-left px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                    className="block w-full text-left px-3 py-2 text-sm text-[var(--brand-primary)] hover:bg-[var(--brand-primary)] hover:text-white rounded-md transition-colors"
                   >
                     {suggestion}
                   </button>
@@ -63,7 +63,7 @@ export default function NotFound({ currentPath, suggestions = [] }: NotFoundProp
             </button>
             <button 
               onClick={handleGoHome}
-              className="flex-1 px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors"
+              className="flex-1 px-4 py-2 text-sm bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-dark)] text-white rounded-md transition-colors"
             >
               Zur Startseite
             </button>

@@ -160,7 +160,12 @@ export const translations = {
         workTogether: "Work Together",
         newsletter: "Newsletter",
         portfolio: "Portfolio",
-        blog: "Blog"
+        blog: "Blog",
+        legal: {
+          imprint: "Imprint",
+          privacy: "Privacy Policy",
+          terms: "Terms & Conditions"
+        } 
       },
       copyright: "© 2025 Simon Heistermann. Built with passion for code, learning, and adventure."
     }
@@ -322,11 +327,16 @@ export const translations = {
         developerServices: "Entwickler-Services",
         studentJourney: "Studenten-Reise",
         travelStories: "Reisegeschichten",
-        studyPacker: "Study-Packer",
+        studyPacker: "Personal Brand",
         workTogether: "Zusammenarbeiten", 
         newsletter: "Newsletter",
         portfolio: "Portfolio",
-        blog: "Blog"
+        blog: "Blog",
+        legal: {
+          imprint: "Impressum",
+          privacy: "Datenschutz",
+          terms: "AGB"
+        }
       },
       copyright: "© 2025 Simon Heistermann. Gebaut mit Leidenschaft für Code, Lernen und Abenteuer."
     }

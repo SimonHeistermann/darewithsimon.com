@@ -13,17 +13,24 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHomePage = window.location.pathname === "/" || window.location.pathname === "/home";
+
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (isHomePage) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setIsMobileMenuOpen(false);
+    } else {
+      const baseUrl = window.location.origin;
+      window.location.href = `${baseUrl}/?scrollTo=${sectionId}`;
+      setIsMobileMenuOpen(false);
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -41,18 +48,30 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
-            <img
-              src="/icons/logo.jpg"
-              alt="Logo"
-              className="h-8 w-8 rounded-full"
-              draggable={false}
-              style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}/>
-            <span 
-              className="font-semibold text-lg text-gradient"
-              style={{ color: 'hsl(var(--foreground))' }}
+            <a
+              href="/"
+              onClick={(e) => {
+                if (window.location.pathname === "/" || window.location.pathname === "/home") {
+                  e.preventDefault();
+                  window.location.reload();
+                }
+              }}
+              className="flex items-center space-x-2"
             >
-              darewithsimon
-            </span>
+              <img
+                src="/icons/logo.jpg"
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+                draggable={false}
+                style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}
+              />
+              <span
+                className="font-semibold text-lg text-gradient"
+                style={{ color: 'hsl(var(--foreground))' }}
+              >
+                darewithsimon
+              </span>
+            </a>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <button
@@ -224,25 +243,23 @@ export default function Navigation() {
               >
                 {t.nav.brand}
               </button>
-              <Button
+              <button
                 onClick={() => scrollToSection("contact")}
-                className="w-full mt-2 transition-all duration-200 hover:scale-105 transform shadow-soft hover:shadow-medium"
+                className="block px-3 py-2 transition-colors w-full text-left rounded-md font-semibold"
                 style={{
-                  backgroundColor: 'hsl(var(--brand-primary))',
                   color: 'hsl(var(--primary-foreground))',
+                  backgroundColor: 'hsl(var(--brand-primary))',
                   borderRadius: 'var(--radius)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = 'hsl(var(--brand-primary) / 0.9)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'hsl(var(--brand-primary))';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
                 }}
               >
                 {t.nav.contact}
-              </Button>
+              </button>
             </div>
           </div>
         )}

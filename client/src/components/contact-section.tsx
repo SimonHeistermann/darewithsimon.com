@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +10,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { Code, Users, Coffee, Mail } from "lucide-react";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { ArrowUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ContactForm {
   name: string;
@@ -19,6 +20,7 @@ interface ContactForm {
 }
 
 export default function ContactSection() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const { t } = useLanguage();
   const { toast } = useToast();
   const [formData, setFormData] = useState<ContactForm>({
@@ -27,6 +29,20 @@ export default function ContactSection() {
     subject: "",
     message: "",
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactForm) => {
@@ -61,13 +77,22 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-white">
-      <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 p-2 rounded-full bg-[var(--brand-primary)] text-white shadow-md hover:bg-[hsl(160,35%,35%)] transition-all"
-      aria-label="Scroll to top"
-    >
-      <ArrowUp className="w-5 h-5" />
-    </button>
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            key="scroll-top"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 p-2 rounded-full bg-[var(--brand-primary)] text-white shadow-md hover:bg-[hsl(160,35%,35%)] transition-colors"
+            aria-label="Scroll to top"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 50, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            <ArrowUp className="w-5 h-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8 animate-fade-in">
@@ -120,7 +145,8 @@ export default function ContactSection() {
                 <FaLinkedin className="text-2xl" />
               </a>
               <a
-                href="#"
+                href="mailto:buisness@darewithsimon.com"
+                rel="noopener noreferrer"
                 className="text-gray-400 transition-colors"
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--destructive)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "")}

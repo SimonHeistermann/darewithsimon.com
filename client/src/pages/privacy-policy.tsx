@@ -28,18 +28,22 @@ export default function PrivacyPolicy() {
                 <p>
                   Simon Heistermann<br />
                   Firma: Simon Heistermann<br />
-                  [Straße und Hausnummer]<br />
-                  [PLZ] [Ort]<br />
+                  Mutter-Teresa-Weg 6<br />
+                  46325 Borken<br />
                   Deutschland
                 </p>
                 <p>
                   <strong>E-Mail:</strong>{" "}
                   <a
-                    href="mailto:[deine@email.de]"
+                    href="mailto:buisness@darewithsimon.com"
                     className="text-primary hover:text-primary/80 underline"
+                    rel="noopener noreferrer"
                   >
-                    [deine@email.de]
+                    buisness@darewithsimon.com
                   </a>
+                </p>
+                <p>
+                    Weitere Informationen finden Sie im <a href="/impressum"  rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline">Impressum</a>.
                 </p>
               </section>
 
