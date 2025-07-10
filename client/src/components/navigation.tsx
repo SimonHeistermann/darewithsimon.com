@@ -41,6 +41,12 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
+            <img
+              src="/icons/logo.jpg"
+              alt="Logo"
+              className="h-8 w-8 rounded-full"
+              draggable={false}
+              style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}/>
             <span 
               className="font-semibold text-lg text-gradient"
               style={{ color: 'hsl(var(--foreground))' }}
@@ -48,7 +54,6 @@ export default function Navigation() {
               darewithsimon
             </span>
           </div>
-
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("developer")}
@@ -115,7 +120,6 @@ export default function Navigation() {
               {t.nav.contact}
             </Button>
           </div>
-
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSwitcher />
             <Button

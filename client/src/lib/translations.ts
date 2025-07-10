@@ -99,7 +99,19 @@ export const translations = {
       emailPlaceholder: "Enter your email address",
       subscribeNow: "Subscribe Now",
       noSpam: "No spam, ever. Unsubscribe anytime.",
-      categories: [" Development insights", " Study tips", " Travel stories", " Personal growth"]
+      categories: [" Development insights", " Study tips", " Travel stories", " Personal growth"],
+      privacyText: "I have read and agree to the ",
+      privacyPolicy: "Privacy Policy",
+      sending: "Submitting...",
+      successTitle: "Success!",
+      successDescription: "Successfully subscribed to newsletter!",
+      errorTitle: "Error",
+      errorDescription: "Failed to subscribe. Please try again.",
+      validation: {
+        emailRequired: "Please enter an email address.",
+        emailInvalid: "Please enter a valid email address.",
+        agreeRequired: "Please accept the privacy policy."
+      }
     },
     contact: {
       title: "Let's Work Together",
@@ -253,7 +265,19 @@ export const translations = {
       emailPlaceholder: "E-Mail-Adresse eingeben",
       subscribeNow: "Jetzt abonnieren", 
       noSpam: "Kein Spam, niemals. Jederzeit abbestellbar.",
-      categories: [" Entwicklungs-Insights", " Lerntipps", " Reisegeschichten", " Persönliches Wachstum"]
+      categories: [" Entwicklungs-Insights", " Lerntipps", " Reisegeschichten", " Persönliches Wachstum"],
+      privacyText: "Ich habe die ",
+      privacyPolicy: "Datenschutzerklärung",
+      sending: "Wird gesendet...",
+      successTitle: "Erfolg!",
+      successDescription: "Erfolgreich zum Newsletter angemeldet!",
+      errorTitle: "Fehler",
+      errorDescription: "Anmeldung fehlgeschlagen. Bitte versuche es erneut.",
+      validation: {
+        emailRequired: "Bitte gib eine E-Mail-Adresse ein.",
+        emailInvalid: "Bitte gib eine gültige E-Mail-Adresse ein.",
+        agreeRequired: "Bitte akzeptiere die Datenschutzerklärung."
+      }
     },
     contact: {
       title: "Lass uns zusammenarbeiten",

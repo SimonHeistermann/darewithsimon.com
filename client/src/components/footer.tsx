@@ -17,6 +17,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
+            <img
+              src="/icons/logo.jpg"
+              alt="Logo"
+              className="h-8 w-8 rounded-full"
+              draggable={false}
+              style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}/>
               <span className="font-semibold text-lg">darewithsimon</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
