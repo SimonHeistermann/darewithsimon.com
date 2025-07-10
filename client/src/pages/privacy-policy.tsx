@@ -1,7 +1,10 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function PrivacyPolicy() {
+  const { t, language } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -10,30 +13,25 @@ export default function PrivacyPolicy() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-soft border border-border p-8 sm:p-12">
             <h1 className="text-4xl font-bold text-foreground mb-8 text-gradient">
-              Datenschutzerklärung
+              {t.privacy.title}
             </h1>
             <div className="prose prose-lg max-w-none text-foreground">
               <section className="mb-8">
-                <h2>1. Datenschutz auf einen Blick</h2>
-                <p>
-                  Diese Datenschutzerklärung informiert Sie darüber, wie ich personenbezogene Daten erhebe, verwende und schütze, wenn Sie meine Website besuchen.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.overview.title}</h2>
+                <p>{t.privacy.overview.description}</p>
               </section>
-
               <section className="mb-8">
-                <h2>2. Verantwortlicher</h2>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.responsible.title}</h2>
+                <p>{t.privacy.responsible.description}</p>
                 <p>
-                  Verantwortlich für die Datenverarbeitung auf dieser Website ist:
+                    {t.privacy.responsible.contact}<br/>
+                    {t.privacy.responsible.company}<br/>
+                    {t.privacy.responsible.address}<br/>
+                    {t.privacy.responsible.city}<br/>
+                    {t.privacy.responsible.country}
                 </p>
                 <p>
-                  Simon Heistermann<br />
-                  Firma: Simon Heistermann<br />
-                  Mutter-Teresa-Weg 6<br />
-                  46325 Borken<br />
-                  Deutschland
-                </p>
-                <p>
-                  <strong>E-Mail:</strong>{" "}
+                  <strong>{t.privacy.responsible.email}</strong>{" "}
                   <a
                     href="mailto:buisness@darewithsimon.com"
                     className="text-primary hover:text-primary/80 underline"
@@ -43,113 +41,83 @@ export default function PrivacyPolicy() {
                   </a>
                 </p>
                 <p>
-                    Weitere Informationen finden Sie im <a href="/impressum"  rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline">Impressum</a>.
+                  {t.privacy.responsible.imprintLink}
+                  <a
+                    href={language === "de" ? "/impressum" : "/legal-notice"}
+                    className="text-primary hover:text-primary/80 underline"
+                    rel="noopener noreferrer"
+                  >
+                    {t.privacy.responsible.imprint}
+                  </a>.
                 </p>
               </section>
-
               <section className="mb-8">
-                <h2>3. Erhebung und Speicherung personenbezogener Daten</h2>
-                <p>Ich verarbeite personenbezogene Daten nur, wenn Sie diese aktiv übermitteln, z. B. über das Kontaktformular oder das Newsletterformular.</p>
-                <ul>
-                  <li>Name, E-Mail-Adresse und ggf. Nachricht (Kontaktformular)</li>
-                  <li>Name, E-Mail-Adresse (Newsletter-Anmeldung)</li>
-                  <li>Zugriffs- und Nutzungsdaten (automatisch durch Server oder Drittanbieter)</li>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.dataCollection.title}</h2>
+                <p>{t.privacy.dataCollection.description}</p>
+                <ul className="list-disc list-inside">
+                  {t.privacy.dataCollection.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
                 </ul>
               </section>
-
               <section className="mb-8">
-                <h2>4. Zweck der Datenverarbeitung</h2>
-                <p>
-                  Die Verarbeitung erfolgt zur:
-                </p>
-                <ul>
-                  <li>Bearbeitung Ihrer Anfrage</li>
-                  <li>Versendung meines Newsletters</li>
-                  <li>Optimierung der Website</li>
-                  <li>Sicherstellung eines sicheren Betriebs</li>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.purpose.title}</h2>
+                <p>{t.privacy.purpose.description}</p>
+                <ul className="list-disc list-inside">
+                  {t.privacy.purpose.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
                 </ul>
               </section>
-
               <section className="mb-8">
-                <h2>5. Rechtsgrundlage</h2>
-                <p>
-                  Die Datenverarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. a, b und f DSGVO.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.legalBasis.title}</h2>
+                <p>{t.privacy.legalBasis.description}</p>
               </section>
-
               <section className="mb-8">
-                <h2>6. Weitergabe an Dritte</h2>
-                <p>
-                  Eine Weitergabe erfolgt nur, wenn dies gesetzlich erlaubt ist oder Sie eingewilligt haben.
-                  Dienstleister wie Hostinganbieter oder Newsletter-Tools erhalten ggf. Zugriff im Rahmen eines Auftragsverarbeitungsvertrags.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.thirdParties.title}</h2>
+                <p>{t.privacy.thirdParties.description}</p>
               </section>
-
               <section className="mb-8">
-                <h2>7. Newsletter</h2>
-                <p>
-                  Wenn Sie sich für den Newsletter anmelden, verwenden wir Ihre E-Mail-Adresse und ggf. Ihren Namen, um Ihnen regelmäßig Informationen zu schicken. Die Anmeldung erfolgt im Double-Opt-In-Verfahren.
-                </p>
-                <p>
-                  Sie können sich jederzeit abmelden. Ihre Daten werden dann umgehend gelöscht.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.newsletter.title}</h2>
+                <p>{t.privacy.newsletter.description}</p>
+                <p>{t.privacy.newsletter.unsubscribe}</p>
               </section>
-
               <section className="mb-8">
-                <h2>8. Kontaktformular</h2>
-                <p>
-                  Wenn Sie mir per Formular Anfragen zukommen lassen, werden Ihre Angaben zwecks Bearbeitung und für den Fall von Anschlussfragen gespeichert.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.contactForm.title}</h2>
+                <p>{t.privacy.contactForm.description}</p>
               </section>
-
               <section className="mb-8">
-                <h2>9. Einbindung von Diensten und Inhalten Dritter</h2>
-                <p>
-                  Auf dieser Website sind Inhalte Dritter eingebunden, z. B. YouTube-Videos, Instagram-Posts, TikToks, die durch externe Server geladen werden. Dabei kann Ihre IP-Adresse an den jeweiligen Dienst übermittelt werden.
-                </p>
-                <p>Folgende Drittanbieter können Daten verarbeiten:</p>
-                <ul>
-                  <li>Google Ireland Ltd. (YouTube)</li>
-                  <li>LinkedIn Ireland Unlimited Company</li>
-                  <li>Instagram (Meta Platforms Ireland Ltd.)</li>
-                  <li>TikTok Technology Limited</li>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.thirdPartyServices.title}</h2>
+                <p>{t.privacy.thirdPartyServices.description}</p>
+                <p>{t.privacy.thirdPartyServices.providers}</p>
+                <ul className="list-disc list-inside">
+                  {t.privacy.thirdPartyServices.providersList.map((provider, idx) => (
+                    <li key={idx}>{provider}</li>
+                  ))}
                 </ul>
               </section>
-
               <section className="mb-8">
-                <h2>10. Cookies und Tracking</h2>
-                <p>
-                  Diese Website verwendet selbst keine Cookies. Drittanbieter (z. B. YouTube) können jedoch Cookies setzen. Beim Einbetten von YouTube-Videos erfolgt dies datenschutzfreundlich über die „nocookie“-Variante.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.cookies.title}</h2>
+                <p>{t.privacy.cookies.description}</p>
               </section>
-
               <section className="mb-8">
-                <h2>11. Ihre Rechte</h2>
-                <ul>
-                  <li>Auskunft über gespeicherte Daten</li>
-                  <li>Berichtigung unrichtiger Daten</li>
-                  <li>Löschung Ihrer Daten (Art. 17 DSGVO)</li>
-                  <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-                  <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
-                  <li>Widerspruch gegen Verarbeitung (Art. 21 DSGVO)</li>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.rights.title}</h2>
+                <ul className="list-disc list-inside">
+                  {t.privacy.rights.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
                 </ul>
-                <p>
-                  Bitte kontaktieren Sie mich dafür über die oben angegebene E-Mail-Adresse.
-                </p>
+                <p>{t.privacy.rights.contact}</p>
               </section>
-
               <section className="mb-8">
-                <h2>12. Beschwerderecht</h2>
-                <p>
-                  Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde zu beschweren.
-                </p>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.complaint.title}</h2>
+                <p>{t.privacy.complaint.description}</p>
               </section>
-
               <section className="mb-8">
-                <h2>13. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.updates.title}</h2>
                 <p>
-                  Diese Datenschutzerklärung ist aktuell gültig und hat den Stand:{" "}
-                  {new Date().toLocaleDateString("de-DE", {
+                  {t.privacy.updates.description}{" "}
+                  {new Date().toLocaleDateString(language === "de" ? "de-DE" : "en-US", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -160,7 +128,6 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
