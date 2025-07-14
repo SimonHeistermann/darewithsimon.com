@@ -56,7 +56,6 @@ function Router() {
   );
 }
 
-// Route-Logging Service
 function RouteLogger() {
   const [location] = useLocation();
   useEffect(() => {

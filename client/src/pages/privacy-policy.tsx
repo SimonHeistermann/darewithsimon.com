@@ -114,6 +114,19 @@ export default function PrivacyPolicy() {
                 <p>{t.privacy.complaint.description}</p>
               </section>
               <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-4">{t.privacy.terms.title}</h2>
+                <p>
+                  {t.privacy.terms.description}{' '}
+                  <a
+                    href={language === 'de' ? '/agb' : '/terms'}
+                    className="text-primary hover:text-primary/80 underline"
+                    rel="noopener noreferrer"
+                  >
+                    {t.privacy.terms.link}
+                  </a>.
+                </p>
+              </section>
+              <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4">{t.privacy.updates.title}</h2>
                 <p>
                   {t.privacy.updates.description}{" "}

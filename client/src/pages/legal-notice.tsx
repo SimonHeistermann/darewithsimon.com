@@ -56,6 +56,22 @@ export default function LegalNotice() {
                   </p>
                 </div>
               </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">
+                  {t.legal.terms.title}
+                </h2>
+                <p>
+                  {t.legal.terms.description}{' '}
+                  <a
+                    href={language === 'de' ? '/agb' : '/terms'}
+                    className="text-primary hover:text-primary/80 underline"
+                    rel="noopener noreferrer"
+                  >
+                    {t.legal.terms.link}
+                  </a>.
+                </p>
+              </section>
               
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-foreground mb-4">

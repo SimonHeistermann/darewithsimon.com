@@ -101,7 +101,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://simon-heistermann.de/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   {t.footer.links.portfolio}
                 </a>
               </li>
@@ -116,13 +116,13 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>{t.footer.copyright}</p>
           <div className="mt-4 text-sm text-gray-500 space-x-4">
-            <a href="/impressum" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="/legal/impressum" rel="noopener noreferrer" className="hover:text-white transition-colors">
               {t.footer.links.legal.imprint}
             </a>
-            <a href="/datenschutz" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="/legal/datenschutz" rel="noopener noreferrer" className="hover:text-white transition-colors">
               {t.footer.links.legal.privacy}
             </a>
-            <a href="/agb" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="/legal/agb" rel="noopener noreferrer" className="hover:text-white transition-colors">
               {t.footer.links.legal.terms}
             </a>
           </div>

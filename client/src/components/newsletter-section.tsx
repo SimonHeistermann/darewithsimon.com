@@ -13,14 +13,18 @@ export default function NewsletterSection() {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
-  const [agreed, setAgreed] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; agreed?: string }>({});
+  const [consentAccepted, setConsentAccepted] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; consent?: string }>({});
   const [shake, setShake] = useState(false);
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (email: string) => apiRequest("POST", "/api/newsletter", { email }),
+    mutationFn: (data: { email: string; consentAccepted: boolean }) => 
+      apiRequest("POST", "/api/newsletter", data),
     onSuccess: () => {
-      toast({ title: t.newsletter.successTitle, description: t.newsletter.successDescription });
+      toast({ 
+        title: t.newsletter.successTitle, 
+        description: t.newsletter.successDescription 
+      });
       resetForm();
     },
     onError: (error: any) => {
@@ -34,10 +38,11 @@ export default function NewsletterSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const validation = validateNewsletterForm(email, agreed, language);
+    const validation = validateNewsletterForm(email, consentAccepted, language);
     setErrors(validation);
+    
     if (Object.keys(validation).length === 0) {
-      mutate(email);
+      mutate({ email, consentAccepted });
     } else {
       triggerShake();
     }
@@ -50,11 +55,11 @@ export default function NewsletterSection() {
 
   const resetForm = () => {
     setEmail("");
-    setAgreed(false);
+    setConsentAccepted(false);
     setErrors({});
   };
 
-  const isFormValid = email.trim() !== "" && agreed;
+  const isFormValid = email.trim() !== "" && consentAccepted;
 
   const categoryIcons = [<Sparkles size={16} />, <BookOpen size={16} />, <Globe size={16} />, <TrendingUp size={16} />];
 
@@ -65,13 +70,13 @@ export default function NewsletterSection() {
           <Header t={t} />
           <FormBlock
             email={email}
-            agreed={agreed}
+            consentAccepted={consentAccepted}
             errors={errors}
             isPending={isPending}
             shake={shake}
             onSubmit={handleSubmit}
             setEmail={setEmail}
-            setAgreed={setAgreed}
+            setConsentAccepted={setConsentAccepted}
             isFormValid={isFormValid}
             t={t}
           />
@@ -93,13 +98,13 @@ function Header({ t }: any) {
 
 function FormBlock({
   email,
-  agreed,
+  consentAccepted,
   errors,
   isPending,
   shake,
   onSubmit,
   setEmail,
-  setAgreed,
+  setConsentAccepted,
   isFormValid,
   t,
 }: any) {
@@ -128,34 +133,45 @@ function FormBlock({
             </p>
           )}
         </div>
-        <div className="flex items-start gap-2 text-left">
-          <input
-            id="privacy"
-            type="checkbox"
-            checked={agreed}
-            onChange={() => setAgreed(!agreed)}
-            className="mt-1 accent-[var(--brand-primary)]"
-            aria-invalid={!!errors.agreed}
-            aria-describedby="privacy-error"
-          />
-          <label htmlFor="privacy" className="text-sm text-gray-300">
-            {t.newsletter.privacyText}
-            <a
-              href="/datenschutz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-primary hover:text-primary/80"
-            >
-              {t.newsletter.privacyPolicy}
-            </a>{" "}
-            {t.newsletter.agreeSuffix ?? ""}
-          </label>
+        <div className="space-y-1 text-left">
+          <div className="flex items-start gap-3">
+            <input
+              id="newsletter-consent"
+              type="checkbox"
+              checked={consentAccepted}
+              onChange={(e) => setConsentAccepted(e.target.checked)}
+              className="mt-1 accent-[var(--brand-primary)] min-w-[16px] h-4"
+              aria-invalid={!!errors.consent}
+              aria-describedby="newsletter-consent-error"
+            />
+            <label htmlFor="newsletter-consent" className="text-sm text-gray-300 leading-relaxed">
+              {t.newsletter.consent.text}{" "}
+              <a
+                href="/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[var(--brand-primary)] hover:text-[var(--brand-primary)]/80"
+              >
+                {t.newsletter.consent.privacyPolicy}
+              </a>{" "}
+              {t.newsletter.consent.and}{" "}
+              <a
+                href="/legal/terms-and-conditions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[var(--brand-primary)] hover:text-[var(--brand-primary)]/80"
+              >
+                {t.newsletter.consent.terms}
+              </a>{""}
+              {t.newsletter.consent.suffix}
+            </label>
+          </div>
+          {errors.consent && (
+            <p id="newsletter-consent-error" className="text-sm text-red-400">
+              {errors.consent}
+            </p>
+          )}
         </div>
-        {errors.agreed && (
-          <p id="privacy-error" className="text-sm text-red-400 text-left">
-            {errors.agreed}
-          </p>
-        )}
         <Button
           type="submit"
           disabled={!isFormValid || isPending}
@@ -168,7 +184,10 @@ function FormBlock({
         >
           {isPending ? t.newsletter.sending : t.newsletter.subscribeNow}
         </Button>
-        <p className="text-xs text-gray-400">{t.newsletter.noSpam}</p>
+        <div className="space-y-2">
+          <p className="text-xs text-gray-400">{t.newsletter.noSpam}</p>
+          <p className="text-xs text-gray-400">{t.newsletter.doubleOptInInfo}</p>
+        </div>
       </form>
     </div>
   );
