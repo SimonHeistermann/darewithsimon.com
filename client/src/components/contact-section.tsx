@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { Code, Users, Coffee, Mail } from "lucide-react";
+import { Code, Users, Coffee, Mail, Download, FileText } from "lucide-react";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -75,6 +75,19 @@ export default function ContactSection() {
     }
   };
 
+  const handleCVDownload = () => {
+    toast({
+      title: "CV Download",
+      description: "CV wird heruntergeladen...",
+    });
+    const link = document.createElement('a');
+    link.href = '/cv.pdf';
+    link.download = 'Simon_Heistermann_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <AnimatePresence>
@@ -133,40 +146,52 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-6">
-              <a
-                href="https://www.linkedin.com/in/simon-maximilian-heistermann-419531250/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 transition-colors"
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--linkedin-blue)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")} 
-              >
-                <FaLinkedin className="text-2xl" />
-              </a>
-              <a
-                href="mailto:buisness@darewithsimon.com"
-                rel="noopener noreferrer"
-                className="text-gray-400 transition-colors"
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--destructive)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
-              >
-                <Mail className="text-2xl" />
-              </a>
-              <a
-                href="https://www.instagram.com/darewithsimon/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 transition-colors"
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--instagram-pink)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
-              >
-                <FaInstagram className="text-2xl" />
-              </a>
+            <div className="space-y-2">
+              <div className="flex items-center gap-6">
+                <a
+                  href="https://www.linkedin.com/in/simon-maximilian-heistermann-419531250/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 transition-colors"
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--linkedin-blue)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "")} 
+                >
+                  <FaLinkedin className="text-2xl" />
+                </a>
+                <a
+                  href="mailto:buisness@darewithsimon.com"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 transition-colors"
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--destructive)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                >
+                  <Mail className="text-2xl" />
+                </a>
+                <a
+                  href="https://www.instagram.com/darewithsimon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 transition-colors"
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--instagram-pink)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                >
+                  <FaInstagram className="text-2xl" />
+                </a>
+                <button
+                  onClick={handleCVDownload}
+                  className="text-gray-400 transition-colors hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-full p-1 flex items-center justify-center"
+                  aria-label="Download CV"
+                >
+                  <div className="relative flex items-center justify-center">
+                    <FileText className="text-2xl" />
+                    <Download className="absolute -bottom-1 -right-1 w-3 h-3 text-green-600" />
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
           <div className="bg-gray-50 p-8 rounded-2xl animate-slide-up">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -231,7 +256,7 @@ export default function ContactSection() {
               >
                 {contactMutation.isPending ? "Sending..." : t.contact.form.sendMessage}
               </Button>
-            </form>
+            </div>
           </div>
         </div>
       </div>

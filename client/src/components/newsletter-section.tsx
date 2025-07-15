@@ -170,7 +170,7 @@ function FormBlock({
                 className="underline text-[var(--brand-primary)] hover:text-[var(--brand-primary)]/80"
               >
                 {t.newsletter.consent.terms}
-              </a>{""}
+              </a>{" "}
               {t.newsletter.consent.suffix}
             </label>
           </div>
