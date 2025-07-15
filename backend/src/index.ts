@@ -44,12 +44,14 @@ app.post("/newsletter", async (req, res) => {
       },
       body: JSON.stringify({
         email,
-        listIds: [2],
         updateEnabled: true,
         emailBlacklisted: false,
         smsBlacklisted: false,
+        doubleOptin: true,
+        // listIds: [2],  << NICHT hier, damit Kontakt noch nicht in Liste landet
         templateId,
       }),
+      
     });
 
     if (!response.ok) {
