@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
-import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import { Check, ChevronDown, ChevronUp, XCircle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -13,22 +13,45 @@ const SelectGroup = SelectPrimitive.Group
 const SelectValue = SelectPrimitive.Value
 
 const SelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+React.ElementRef<typeof SelectPrimitive.Trigger>,
+React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
+  hasError?: boolean;
+  isValid?: boolean;
+  shake?: boolean;
+}
+>(({ className, children, hasError = false, isValid = false, shake = false, ...props }, ref) => (
+<div className={cn("relative", shake && "animate-[shake_0.4s]")}>
+  <style>
+    {`
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+    `}
+  </style>
+
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      "flex h-12 w-full items-center justify-between rounded-md border px-4 text-base shadow-sm focus:outline-none focus:ring-2 transition-all",
+      hasError
+        ? "border-red-500 bg-red-50 focus:ring-red-300"
+        : isValid
+        ? "border-green-500 bg-green-50 focus:ring-green-300"
+        : "border-gray-300 focus:ring-teal-400",
       className
     )}
     {...props}
   >
-    {children}
-    <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
-    </SelectPrimitive.Icon>
+    <span className="line-clamp-1">{children}</span>
+    <div className="ml-2 flex items-center gap-1">
+      {isValid && <Check className="w-5 h-5 text-green-500" />}
+      {hasError && <XCircle className="w-5 h-5 text-red-500" />}
+      {!hasError && !isValid && <ChevronDown className="w-4 h-4 text-gray-400" />}
+    </div>
   </SelectPrimitive.Trigger>
+</div>
 ))
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 

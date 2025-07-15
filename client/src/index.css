@@ -102,6 +102,10 @@
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
+html, body {
+  background-color: var(--gradient-hero);
+}
+
 .text-gradient {
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
   -webkit-background-clip: text;

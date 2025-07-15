@@ -7,25 +7,23 @@ import rateLimit from "express-rate-limit";
 dotenv.config();
 
 const app = express();
+app.set("trust proxy", 1);
 const port = process.env.PORT || 4000;
 
-// Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Rate Limiter für den /newsletter-Endpunkt
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 Minuten
-  max: 5, // Max. 5 Anfragen pro IP
+  windowMs: 15 * 60 * 1000,
+  max: 5,
   message: { message: "Zu viele Anfragen, bitte warte kurz." },
 });
 app.use("/newsletter", limiter);
 
-// Brevo-Konstanten
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const BREVO_API_URL = "https://api.brevo.com/v3/contacts";
-const TEMPLATE_ID_DE = 1234;
-const TEMPLATE_ID_EN = 5678;
+const TEMPLATE_ID_DE = 6;
+const TEMPLATE_ID_EN = 7;
 
 app.post("/newsletter", async (req, res) => {
   const { email, consentAccepted, language } = req.body;
@@ -46,7 +44,7 @@ app.post("/newsletter", async (req, res) => {
       },
       body: JSON.stringify({
         email,
-        listIds: [], // Optional
+        listIds: [2],
         updateEnabled: true,
         emailBlacklisted: false,
         smsBlacklisted: false,

@@ -17,13 +17,22 @@ export default function NewsletterSection() {
   const [errors, setErrors] = useState<{ email?: string; consent?: string }>({});
   const [shake, setShake] = useState(false);
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const { mutate, isPending } = useMutation({
-    mutationFn: (data: { email: string; consentAccepted: boolean }) => 
-      apiRequest("POST", "/api/newsletter", data),
+    mutationFn: (data: { email: string; consentAccepted: boolean }) =>
+      fetch(`${BACKEND_URL}/newsletter`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, language }),
+      }).then(async (res) => {
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.message || "Unbekannter Fehler");
+        return json;
+      }),
     onSuccess: () => {
-      toast({ 
-        title: t.newsletter.successTitle, 
-        description: t.newsletter.successDescription 
+      toast({
+        title: t.newsletter.successTitle,
+        description: t.newsletter.successDescription,
       });
       resetForm();
     },
@@ -31,8 +40,8 @@ export default function NewsletterSection() {
       toast({
         title: t.newsletter.errorTitle,
         description: error.message || t.newsletter.errorDescription,
-        variant: "destructive"
-      });      
+        variant: "destructive",
+      });
     },
   });
 
