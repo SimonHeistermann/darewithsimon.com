@@ -22,8 +22,9 @@ app.use("/newsletter", limiter);
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const BREVO_API_URL = "https://api.brevo.com/v3/contacts";
-const TEMPLATE_ID_DE = 6;
-const TEMPLATE_ID_EN = 7;
+
+const LIST_ID_UNCONFIRMED_DE = 7;
+const LIST_ID_UNCONFIRMED_EN = 11;
 
 app.post("/newsletter", async (req, res) => {
   const { email, consentAccepted, language } = req.body;
@@ -32,7 +33,7 @@ app.post("/newsletter", async (req, res) => {
     return res.status(400).json({ message: "Email und Zustimmung sind erforderlich." });
   }
 
-  const templateId = language === "de" ? TEMPLATE_ID_DE : TEMPLATE_ID_EN;
+  const listId = language === "de" ? LIST_ID_UNCONFIRMED_DE : LIST_ID_UNCONFIRMED_EN;
 
   try {
     const response = await fetch(BREVO_API_URL, {
@@ -47,11 +48,8 @@ app.post("/newsletter", async (req, res) => {
         updateEnabled: true,
         emailBlacklisted: false,
         smsBlacklisted: false,
-        doubleOptin: true,
-        // listIds: [2],  << NICHT hier, damit Kontakt noch nicht in Liste landet
-        templateId,
+        listIds: [listId]
       }),
-      
     });
 
     if (!response.ok) {
@@ -59,7 +57,7 @@ app.post("/newsletter", async (req, res) => {
       return res.status(500).json({ message: errorData?.message || "Fehler bei Brevo API" });
     }
 
-    res.status(200).json({ message: "Double Opt-in E-Mail wurde versendet." });
+    res.status(200).json({ message: "Kontakt wurde zur Liste hinzugefügt." });
   } catch (error: unknown) {
     const err = error as { message?: string };
     res.status(500).json({ message: err?.message || "Serverfehler" });

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { Sparkles, BookOpen, Globe, TrendingUp } from "lucide-react";
 import clsx from "clsx";
 import { validateNewsletterForm } from "@/lib/validators";
