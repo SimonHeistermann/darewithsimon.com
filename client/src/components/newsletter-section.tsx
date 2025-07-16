@@ -130,6 +130,7 @@ function FormBlock({
             type="email"
             placeholder={t.newsletter.emailPlaceholder}
             value={email}
+            disabled={isPending}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-[var(--brand-primary)] focus:border-transparent"
             aria-invalid={!!errors.email}
@@ -147,6 +148,7 @@ function FormBlock({
               id="newsletter-consent"
               type="checkbox"
               checked={consentAccepted}
+              disabled={isPending}
               onChange={(e) => setConsentAccepted(e.target.checked)}
               className="mt-1 accent-[var(--brand-primary)] min-w-[16px] h-4"
               aria-invalid={!!errors.consent}
