@@ -113,6 +113,33 @@ html, body {
   background-clip: text;
 }
 
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+
 @layer base {
   * {
     @apply border-border;

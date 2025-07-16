@@ -2,6 +2,7 @@ import Home from "@/pages/home";
 import LegalNotice from "@/pages/legal-notice";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsConditions from "@/pages/terms-and-conditions";
+import NewsletterConfirmed from "@/pages/newsletter/newsletter-confirmed";
 
 export interface RouteConfig {
   paths: string[];
@@ -24,6 +25,28 @@ export const ROUTES: Record<string, RouteConfig> = {
   HOME: {
     paths: ["/", "/home", "/start"],
     component: Home,
+  },
+  NEWSLETTER_CONFIRMED: {
+    paths: [
+      "/newsletter/confirmed",
+      "/newsletter/bestaetigt",
+      "/newsletter/bestätigt",
+      "/newsletter/success",
+      "/newsletter/erfolgreich",
+      "/newsletter/danke",
+      "/newsletter/thank-you",
+      "/newsletter/anmeldung-erfolgreich",
+      "/newsletter/registration-success",
+      "/newsletter/willkommen",
+      "/newsletter/welcome",
+      "/bestätigung/newsletter",
+      "/bestaetigung/newsletter",
+      "/confirmation/newsletter",
+      "/success/newsletter",
+      "/danke/newsletter",
+      "/thank-you/newsletter"
+    ],
+    component: NewsletterConfirmed,
   },
   LEGAL_NOTICE: {
     paths: [
@@ -225,7 +248,14 @@ function getLegacyRouteMapping(): Record<string, string> {
     "/agb": "/legal/agb",
     "/privacy-policy": "/legal/privacy-policy",
     "/terms-conditions": "/legal/terms-conditions",
-    "/legal-notice": "/legal/impressum"
+    "/legal-notice": "/legal/impressum",
+    "/newsletter-confirmed": "/newsletter/confirmed",
+    "/newsletter-success": "/newsletter/confirmed",
+    "/newsletter-bestaetigt": "/newsletter/confirmed",
+    "/newsletter-bestätigt": "/newsletter/confirmed",
+    "/anmeldung-erfolgreich": "/newsletter/confirmed",
+    "/bestätigung": "/newsletter/confirmed",
+    "/bestaetigung": "/newsletter/confirmed"
   };
 }
 

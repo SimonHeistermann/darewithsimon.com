@@ -1,3 +1,5 @@
+import NewsletterConfirmed from "@/pages/newsletter/newsletter-confirmed";
+
 export const translations = {
   en: {
     nav: {
@@ -446,6 +448,19 @@ export const translations = {
         paragraph2: "Changes will be communicated to clients in good time and are considered approved if no objection is raised within 4 weeks."
       },
       lastUpdated: "Last updated:"
+    },
+    newsletterConfirmed: {
+      content: {
+        title: "Great to have you on board! 🎉",
+        description: "Your registration was successful – and I'm thrilled that you're here. From now on, you'll regularly receive personal insights, travel tips, personal development impulses and more – directly to your inbox.",
+        welcome: "Welcome to Dare with Simon ✌️",
+        backToHome: "Back to Homepage"
+      },
+      footer: {
+        imprint: "Imprint",
+        privacy: "Privacy Policy",
+        terms: "Terms & Conditions"
+      },
     }
   },
   de: {
@@ -895,6 +910,19 @@ export const translations = {
         paragraph2: "Änderungen werden den Kunden rechtzeitig mitgeteilt und gelten als genehmigt, wenn nicht binnen 4 Wochen widersprochen wird."
       },
       lastUpdated: "Stand:"
+    },
+    newsletterConfirmed: {
+      content: {
+        title: "Schön, dass du dabei bist! 🎉",
+        description: "Deine Anmeldung war erfolgreich – und ich freu mich riesig, dass du hier bist. Ab jetzt bekommst du regelmäßig persönliche Einblicke, Reisetipps, Impulse zur Persönlichkeitsentwicklung und mehr – direkt in dein Postfach.",
+        welcome: "Willkommen bei Dare with Simon ✌️",
+        backToHome: "Zurück zur Startseite"
+      },
+      footer: {
+        imprint: "Impressum",
+        privacy: "Datenschutz",
+        terms: "AGB"
+      },
     }
   }
 };

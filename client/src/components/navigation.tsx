@@ -36,13 +36,13 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "backdrop-blur-md shadow-medium"
-          : "backdrop-blur-md"
+        isScrolled ? "backdrop-blur-md shadow-medium" : "backdrop-blur-md"
       }`}
       style={{
-        backgroundColor: isScrolled ? 'hsl(var(--background) / 0.95)' : 'hsl(var(--background) / 0.8)',
-        borderBottom: `1px solid hsl(var(--border))`
+        backgroundColor: isScrolled
+          ? "hsl(var(--background) / 0.95)"
+          : "hsl(var(--background) / 0.8)",
+        borderBottom: `1px solid hsl(var(--border))`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,83 +63,63 @@ export default function Navigation() {
                 alt="Logo"
                 className="h-8 w-8 rounded-full"
                 draggable={false}
-                style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}
+                style={{ filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))" }}
               />
               <span
                 className="font-semibold text-lg text-gradient"
-                style={{ color: 'hsl(var(--foreground))' }}
+                style={{ color: "hsl(var(--foreground))" }}
               >
                 darewithsimon
               </span>
             </a>
           </div>
-          <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("developer")}
-              className="transition-colors hover:scale-105 transform duration-200"
-              style={{ 
-                color: 'hsl(var(--muted-foreground))'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--brand-primary))'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--muted-foreground))'}
-            >
-              {t.nav.developer}
-            </button>
-            <button
-              onClick={() => scrollToSection("student")}
-              className="transition-colors hover:scale-105 transform duration-200"
-              style={{ 
-                color: 'hsl(var(--muted-foreground))'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--brand-primary))'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--muted-foreground))'}
-            >
-              {t.nav.student}
-            </button>
-            <button
-              onClick={() => scrollToSection("traveler")}
-              className="transition-colors hover:scale-105 transform duration-200"
-              style={{ 
-                color: 'hsl(var(--muted-foreground))'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--brand-primary))'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--muted-foreground))'}
-            >
-              {t.nav.traveler}
-            </button>
-            <button
-              onClick={() => scrollToSection("brand")}
-              className="transition-colors hover:scale-105 transform duration-200"
-              style={{ 
-                color: 'hsl(var(--muted-foreground))'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--brand-primary))'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--muted-foreground))'}
-            >
-              {t.nav.brand}
-            </button>
+
+          {/* DESKTOP NAVIGATION */}
+          <div className="hidden nav:flex items-center space-x-8">
+            {[
+              { label: t.nav.developer, section: "developer" },
+              { label: t.nav.student, section: "student" },
+              { label: t.nav.traveler, section: "traveler" },
+              { label: t.nav.brand, section: "brand" },
+            ].map((item, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSection(item.section)}
+                className="transition-all transform hover:scale-105 duration-200"
+                style={{
+                  color: "hsl(var(--muted-foreground))",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(var(--brand-primary))")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(var(--muted-foreground))")}
+              >
+                {item.label}
+              </button>
+            ))}
+
             <LanguageSwitcher />
             <Button
               onClick={() => scrollToSection("contact")}
               className="transition-all duration-200 hover:scale-105 transform shadow-soft hover:shadow-medium"
               style={{
-                backgroundColor: 'hsl(var(--brand-primary))',
-                color: 'hsl(var(--primary-foreground))',
-                borderRadius: 'var(--radius)'
+                backgroundColor: "hsl(var(--brand-primary))",
+                color: "hsl(var(--primary-foreground))",
+                borderRadius: "var(--radius)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'hsl(var(--brand-primary) / 0.9)';
-                e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                e.currentTarget.style.backgroundColor = "hsl(var(--brand-primary) / 0.9)";
+                e.currentTarget.style.boxShadow = "var(--shadow-medium)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'hsl(var(--brand-primary))';
-                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+                e.currentTarget.style.backgroundColor = "hsl(var(--brand-primary))";
+                e.currentTarget.style.boxShadow = "var(--shadow-soft)";
               }}
             >
               {t.nav.contact}
             </Button>
           </div>
-          <div className="md:hidden flex items-center space-x-2">
+
+          {/* MOBILE HEADER */}
+          <div className="nav:hidden flex items-center space-x-2">
             <LanguageSwitcher />
             <Button
               variant="ghost"
@@ -147,115 +127,64 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="transition-colors"
               style={{
-                color: 'hsl(var(--muted-foreground))'
+                color: "hsl(var(--muted-foreground))",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'hsl(var(--muted) / 0.8)';
-                e.currentTarget.style.color = 'hsl(var(--foreground))';
+                e.currentTarget.style.backgroundColor = "hsl(var(--muted) / 0.8)";
+                e.currentTarget.style.color = "hsl(var(--foreground))";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = "hsl(var(--muted-foreground))";
               }}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
+
+        {/* MOBILE MENU */}
         {isMobileMenuOpen && (
-          <div 
-            className="md:hidden backdrop-blur-md"
+          <div
+            className="nav:hidden backdrop-blur-md"
             style={{
               borderTop: `1px solid hsl(var(--border))`,
-              backgroundColor: 'hsl(var(--background) / 0.95)'
+              backgroundColor: "hsl(var(--background) / 0.95)",
             }}
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection("developer")}
-                className="block px-3 py-2 transition-colors w-full text-left rounded-md"
-                style={{ 
-                  color: 'hsl(var(--muted-foreground))',
-                  borderRadius: 'var(--radius)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'hsl(var(--muted) / 0.5)';
-                  e.currentTarget.style.color = 'hsl(var(--brand-primary))';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
-                }}
-              >
-                {t.nav.developer}
-              </button>
-              <button
-                onClick={() => scrollToSection("student")}
-                className="block px-3 py-2 transition-colors w-full text-left rounded-md"
-                style={{ 
-                  color: 'hsl(var(--muted-foreground))',
-                  borderRadius: 'var(--radius)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'hsl(var(--muted) / 0.5)';
-                  e.currentTarget.style.color = 'hsl(var(--brand-primary))';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
-                }}
-              >
-                {t.nav.student}
-              </button>
-              <button
-                onClick={() => scrollToSection("traveler")}
-                className="block px-3 py-2 transition-colors w-full text-left rounded-md"
-                style={{ 
-                  color: 'hsl(var(--muted-foreground))',
-                  borderRadius: 'var(--radius)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'hsl(var(--muted) / 0.5)';
-                  e.currentTarget.style.color = 'hsl(var(--brand-primary))';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
-                }}
-              >
-                {t.nav.traveler}
-              </button>
-              <button
-                onClick={() => scrollToSection("brand")}
-                className="block px-3 py-2 transition-colors w-full text-left rounded-md"
-                style={{ 
-                  color: 'hsl(var(--muted-foreground))',
-                  borderRadius: 'var(--radius)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'hsl(var(--muted) / 0.5)';
-                  e.currentTarget.style.color = 'hsl(var(--brand-primary))';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
-                }}
-              >
-                {t.nav.brand}
-              </button>
+              {[
+                { label: t.nav.developer, section: "developer" },
+                { label: t.nav.student, section: "student" },
+                { label: t.nav.traveler, section: "traveler" },
+                { label: t.nav.brand, section: "brand" },
+              ].map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToSection(item.section)}
+                  className="block px-3 py-2 w-full text-left rounded-md transition-all transform hover:scale-[1.05] hover:bg-[hsl(var(--muted)/0.5)] hover:text-[hsl(var(--brand-primary))]"
+                  style={{
+                    color: "hsl(var(--muted-foreground))",
+                    borderRadius: "var(--radius)",
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
+
               <button
                 onClick={() => scrollToSection("contact")}
-                className="block px-3 py-2 transition-colors w-full text-left rounded-md font-semibold"
+                className="block px-3 py-2 w-full text-left rounded-md font-semibold transition-all transform hover:scale-[1.05]"
                 style={{
-                  color: 'hsl(var(--primary-foreground))',
-                  backgroundColor: 'hsl(var(--brand-primary))',
-                  borderRadius: 'var(--radius)'
+                  color: "hsl(var(--primary-foreground))",
+                  backgroundColor: "hsl(var(--brand-primary))",
+                  borderRadius: "var(--radius)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'hsl(var(--brand-primary) / 0.9)';
+                  e.currentTarget.style.backgroundColor = "hsl(var(--brand-primary) / 0.9)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'hsl(var(--brand-primary))';
+                  e.currentTarget.style.backgroundColor = "hsl(var(--brand-primary))";
                 }}
               >
                 {t.nav.contact}
