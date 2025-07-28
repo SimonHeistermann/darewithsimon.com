@@ -205,7 +205,7 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="space-y-1">
-        <label htmlFor="contact-subject" className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-700">
           {t.contact.form.subject} *
         </label>
         <Select

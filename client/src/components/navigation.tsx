@@ -59,7 +59,7 @@ export default function Navigation() {
               className="flex items-center space-x-2"
             >
               <img
-                src="/icons/logo.jpg"
+                src="/images/icons/logo.jpg"
                 alt="Logo"
                 className="h-8 w-8 rounded-full"
                 draggable={false}
