@@ -89,9 +89,10 @@ export default function ContactForm() {
     });
   };
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const res = await fetch("/contact", {
+      const res = await fetch(`${BACKEND_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

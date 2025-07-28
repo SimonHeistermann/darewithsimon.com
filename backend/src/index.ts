@@ -1,12 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import fetch from "node-fetch";
 import rateLimit from "express-rate-limit";
 import nodemailer from "nodemailer";
+import { log } from "console";
 
-
-dotenv.config();
 
 const app = express();
 app.set("trust proxy", 1);
