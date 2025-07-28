@@ -5,7 +5,6 @@ import cors from "cors";
 import fetch from "node-fetch";
 import rateLimit from "express-rate-limit";
 import nodemailer from "nodemailer";
-import { log } from "console";
 
 
 const app = express();
@@ -105,6 +104,9 @@ app.post("/contact", async (req, res) => {
   }
 
   try {
+    console.log("SMTP_HOST:", process.env.SMTP_HOST);
+    console.log("SMTP_PORT:", process.env.SMTP_PORT);
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || "465"),
