@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FaLinkedin, FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa";
 import LanguageSwitcher from "./../../components/language-switcher";
 
-export default function NewsletterConfirmed() {
+export default function NewsletterUnsubscribed() {
   const { t } = useLanguage();
 
   return (
@@ -50,7 +50,7 @@ export default function NewsletterConfirmed() {
                 e.currentTarget.style.boxShadow = "var(--shadow-soft)";
               }}
             >
-              {t.newsletterConfirmed.content.backToHome}
+              {t.newsletterUnsubscribed.content.backToHome}
             </Button>
           </Link>
         </div>
@@ -64,19 +64,19 @@ export default function NewsletterConfirmed() {
           }}
         >
           <h1 className="text-3xl sm:text-4xl font-bold text-gradient">
-            {t.newsletterConfirmed.content.title}
+            {t.newsletterUnsubscribed.content.title}
           </h1>
           <p 
             className="text-lg"
             style={{ color: "hsl(var(--muted-foreground))" }}
           >
-            {t.newsletterConfirmed.content.description}
+            {t.newsletterUnsubscribed.content.description}
           </p>
           <p 
             className="font-medium"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            {t.newsletterConfirmed.content.welcome}
+            {t.newsletterUnsubscribed.content.resubscribe}
           </p>
 
           <div className="flex justify-center">
@@ -136,7 +136,7 @@ export default function NewsletterConfirmed() {
                   e.currentTarget.style.backgroundColor = "var(--brand-primary)";
                 }}
               >
-                {t.newsletterConfirmed.content.backToHome}
+                {t.newsletterUnsubscribed.content.backToHome}
               </Button>
             </Link>
           </div>
@@ -154,7 +154,7 @@ export default function NewsletterConfirmed() {
                 rel="noopener noreferrer" 
                 className="hover:text-white transition-colors"
               >
-                {t.newsletterConfirmed.footer.imprint}
+                {t.newsletterUnsubscribed.footer.imprint}
               </a>
               <span>•</span>
               <a 
@@ -162,7 +162,7 @@ export default function NewsletterConfirmed() {
                 rel="noopener noreferrer" 
                 className="hover:text-white transition-colors"
               >
-                {t.newsletterConfirmed.footer.privacy}
+                {t.newsletterUnsubscribed.footer.privacy}
               </a>
               <span>•</span>
               <a 
@@ -170,7 +170,7 @@ export default function NewsletterConfirmed() {
                 rel="noopener noreferrer" 
                 className="hover:text-white transition-colors"
               >
-                {t.newsletterConfirmed.footer.terms}
+                {t.newsletterUnsubscribed.footer.terms}
               </a>
             </div>
           </div>

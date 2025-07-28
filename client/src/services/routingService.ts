@@ -3,6 +3,7 @@ import LegalNotice from "@/pages/legal-notice";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsConditions from "@/pages/terms-and-conditions";
 import NewsletterConfirmed from "@/pages/newsletter/newsletter-confirmed";
+import NewsletterUnsubscribed from "@/pages/newsletter/newsletter-unsubscribed";
 
 export interface RouteConfig {
   paths: string[];
@@ -44,14 +45,41 @@ export const ROUTES: Record<string, RouteConfig> = {
       "/confirmation/newsletter",
       "/success/newsletter",
       "/danke/newsletter",
-      "/thank-you/newsletter"
+      "/thank-you/newsletter",
+      "/newsletter/confirmed/:token"
     ],
     component: NewsletterConfirmed,
+  },
+  NEWSLETTER_UNSUBSCRIBED: {
+    paths: [
+      "/newsletter/unsubscribed",
+      "/newsletter/abgemeldet",
+      "/newsletter/unsubscribe",
+      "/newsletter/abmelden",
+      "/newsletter/cancelled",
+      "/newsletter/abbruch",
+      "/newsletter/goodbye",
+      "/newsletter/tschuess",
+      "/newsletter/tschüss",
+      "/newsletter/auf-wiedersehen",
+      "/newsletter/farewell",
+      "/newsletter/leave",
+      "/newsletter/verlassen",
+      "/newsletter/opt-out",
+      "/newsletter/austragen",
+      "/abmeldung/newsletter",
+      "/unsubscribe/newsletter",
+      "/goodbye/newsletter",
+      "/farewell/newsletter",
+      "/opt-out/newsletter",
+      "/newsletter/unsubscribed/:token"
+    ],
+    component: NewsletterUnsubscribed,
   },
   LEGAL_NOTICE: {
     paths: [
       "/legal/impressum",
-      "/legal/imprint", 
+      "/legal/imprint",
       "/legal/legal-notice",
       "/rechtlich/impressum",
       "/rechtlich/imprint",
@@ -59,11 +87,12 @@ export const ROUTES: Record<string, RouteConfig> = {
       "/rechtlich/rechtliches",
       "/rechtlich/rechtliche-hinweise",
       "/legal-notice",
-      "/impressum", 
+      "/impressum",
       "/imprint",
       "/rechtliches",
       "/rechtliche-hinweise",
-      "/legal"
+      "/legal",
+      "/legal/impressum/:token"
     ],
     component: LegalNotice,
   },
@@ -93,7 +122,8 @@ export const ROUTES: Record<string, RouteConfig> = {
       "/privatsphäre",
       "/privatsphaere",
       "/dsgvo",
-      "/gdpr"
+      "/gdpr",
+      "/legal/privacy-policy/:token",
     ],
     component: PrivacyPolicy,
   },
@@ -130,41 +160,65 @@ export const ROUTES: Record<string, RouteConfig> = {
       "/tos",
       "/nutzungsbedingungen",
       "/bedingungen",
-      "/gtc"
+      "/gtc",
+      "/legal/terms-conditions/:token",
     ],
     component: TermsConditions,
   }
 };
 
 function replaceUmlautsAndEszett(text: string): string {
-  const replacements: Record<string, string> = { 
-    'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss' 
+  const replacements: Record<string, string> = {
+    "ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"
   };
-  return text.replace(/[äöüß]/g, (char: string) => replacements[char] || char);
+  return text.replace(/[äöüß]/g, c => replacements[c] || c);
 }
 
 function cleanPathSlashes(path: string): string {
-  return path.replace(/^\/+|\/+$/g, '');
+  return path.replace(/^\/+|\/+$/g, "");
 }
 
 function normalizeSpaces(text: string): string {
-  return text.replace(/\s+/g, '-');
+  return text.replace(/\s+/g, "-");
 }
 
 export function normalizeRoute(path: string): string {
+  const cleanPath = path.split("?")[0];
   return replaceUmlautsAndEszett(
     normalizeSpaces(
       cleanPathSlashes(
-        path.toLowerCase().trim()
+        cleanPath.toLowerCase().trim()
       )
     )
   );
 }
 
+function stripToken(path: string): string {
+  return path.replace(/\/[^/]+$/, "");
+}
+
+function pathMatchesWithParams(input: string, routePath: string): boolean {
+  const inputSegments = normalizeRoute(input).split("/");
+  const routeSegments = normalizeRoute(routePath).split("/");
+  if (inputSegments.length !== routeSegments.length) {
+    return false;
+  }
+  for (let i = 0; i < routeSegments.length; i++) {
+    if (routeSegments[i].startsWith(":")) {
+      continue;
+    }
+    if (routeSegments[i] !== inputSegments[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
 function findExactRouteMatch(normalizedPath: string): RouteMatch | null {
-  for (const [routeName, route] of Object.entries(ROUTES)) {
+  for (const route of Object.values(ROUTES)) {
     for (const path of route.paths) {
-      if (normalizeRoute(path) === normalizedPath) {
+      if (pathMatchesWithParams(normalizedPath, path)) {
         return { route, exactMatch: true };
       }
     }
@@ -173,10 +227,10 @@ function findExactRouteMatch(normalizedPath: string): RouteMatch | null {
 }
 
 function findFuzzyRouteMatch(normalizedPath: string): RouteMatch | null {
-  for (const [routeName, route] of Object.entries(ROUTES)) {
+  for (const route of Object.values(ROUTES)) {
     for (const path of route.paths) {
-      const normalizedRoutePath = normalizeRoute(path);
-      if (isSimilarPath(normalizedPath, normalizedRoutePath)) {
+      const routeNorm = normalizeRoute(stripToken(path));
+      if (isSimilarPath(normalizedPath, routeNorm)) {
         return { route, fuzzyMatch: true, suggestedPath: path };
       }
     }
@@ -186,44 +240,30 @@ function findFuzzyRouteMatch(normalizedPath: string): RouteMatch | null {
 
 export function findMatchingRoute(currentPath: string): RouteMatch | null {
   const normalizedPath = normalizeRoute(currentPath);
-  const exactMatch = findExactRouteMatch(normalizedPath);
-  if (exactMatch) return exactMatch;
-  
-  return findFuzzyRouteMatch(normalizedPath);
+  return findExactRouteMatch(normalizedPath) || findFuzzyRouteMatch(normalizedPath);
 }
 
-function hasValidLengthDifference(path1: string, path2: string): boolean {
-  return Math.abs(path1.length - path2.length) <= 3;
+function hasValidLengthDifference(a: string, b: string): boolean {
+  return Math.abs(a.length - b.length) <= 3;
 }
 
-function calculateMinRequiredLength(path1: string, path2: string): number {
-  return Math.min(path1.length, path2.length) * 0.7;
+function calculateMinRequiredLength(a: string, b: string): number {
+  return Math.min(a.length, b.length) * 0.7;
 }
 
-function isSimilarPath(path1: string, path2: string): boolean {
-  if (!hasValidLengthDifference(path1, path2)) return false;
-  const commonSubstring = longestCommonSubstring(path1, path2);
-  const minRequiredLength = calculateMinRequiredLength(path1, path2);
-  return commonSubstring.length >= minRequiredLength;
+function isSimilarPath(a: string, b: string): boolean {
+  if (!hasValidLengthDifference(a, b)) return false;
+  return longestCommonSubstring(a, b).length >= calculateMinRequiredLength(a, b);
 }
 
-function checkAndUpdateLongestSubstring(
-  substr: string, 
-  str2: string, 
-  currentLongest: string
-): string {
-  if (str2.includes(substr) && substr.length > currentLongest.length) {
-    return substr;
-  }
-  return currentLongest;
-}
-
-function longestCommonSubstring(str1: string, str2: string): string {
-  let longest = '';
-  for (let i = 0; i < str1.length; i++) {
-    for (let j = i + 1; j <= str1.length; j++) {
-      const substr = str1.slice(i, j);
-      longest = checkAndUpdateLongestSubstring(substr, str2, longest);
+function longestCommonSubstring(a: string, b: string): string {
+  let longest = "";
+  for (let i = 0; i < a.length; i++) {
+    for (let j = i + 1; j <= a.length; j++) {
+      const substr = a.slice(i, j);
+      if (b.includes(substr) && substr.length > longest.length) {
+        longest = substr;
+      }
     }
   }
   return longest;
@@ -234,17 +274,14 @@ function getDefaultSuggestions(): string[] {
 }
 
 export function getRouteSuggestions(currentPath: string): string[] {
-  const matchResult = findMatchingRoute(currentPath);
-  if (matchResult && matchResult.suggestedPath) {
-    return [matchResult.suggestedPath];
-  }
-  return getDefaultSuggestions();
+  const match = findMatchingRoute(currentPath);
+  return match?.suggestedPath ? [match.suggestedPath] : getDefaultSuggestions();
 }
 
 function getLegacyRouteMapping(): Record<string, string> {
   return {
     "/impressum": "/legal/impressum",
-    "/datenschutz": "/legal/datenschutz", 
+    "/datenschutz": "/legal/datenschutz",
     "/agb": "/legal/agb",
     "/privacy-policy": "/legal/privacy-policy",
     "/terms-conditions": "/legal/terms-conditions",
@@ -255,33 +292,31 @@ function getLegacyRouteMapping(): Record<string, string> {
     "/newsletter-bestätigt": "/newsletter/confirmed",
     "/anmeldung-erfolgreich": "/newsletter/confirmed",
     "/bestätigung": "/newsletter/confirmed",
-    "/bestaetigung": "/newsletter/confirmed"
+    "/bestaetigung": "/newsletter/confirmed",
+    "/newsletter-unsubscribed": "/newsletter/unsubscribed",
+    "/newsletter-abgemeldet": "/newsletter/unsubscribed",
+    "/abgemeldet": "/newsletter/unsubscribed",
+    "/unsubscribed": "/newsletter/unsubscribed",
+    "/abmeldung": "/newsletter/unsubscribed",
+    "/unsubscribe": "/newsletter/unsubscribed"
   };
 }
 
 function handleFuzzyMatchRedirect(currentPath: string): string | null {
-  const matchResult = findMatchingRoute(currentPath);
-  
-  if (matchResult && matchResult.fuzzyMatch && matchResult.suggestedPath) {
-    console.log(`Weiterleitung von "${currentPath}" zu "${matchResult.suggestedPath}"`);
-    return matchResult.suggestedPath;
+  const match = findMatchingRoute(currentPath);
+  if (match?.fuzzyMatch && match.suggestedPath) {
+    console.log(`Fuzzy redirect: "${currentPath}" → "${match.suggestedPath}"`);
+    return match.suggestedPath;
   }
   return null;
 }
 
 function handleLegacyRedirect(currentPath: string): string | null {
-  const legacyRoutes = getLegacyRouteMapping();
-  const normalizedPath = normalizeRoute(currentPath);
-  const newPath = legacyRoutes[`/${normalizedPath}`];
-  if (newPath) {
-    console.log(`Legacy-Weiterleitung von "${currentPath}" zu "${newPath}"`);
-    return newPath;
-  }
-  return null;
+  const legacy = getLegacyRouteMapping();
+  const normalized = normalizeRoute(currentPath);
+  return legacy[`/${normalized}`] || null;
 }
 
 export function shouldRedirect(currentPath: string): string | null {
-  const fuzzyRedirect = handleFuzzyMatchRedirect(currentPath);
-  if (fuzzyRedirect) return fuzzyRedirect;
-  return handleLegacyRedirect(currentPath);
+  return handleFuzzyMatchRedirect(currentPath) || handleLegacyRedirect(currentPath);
 }

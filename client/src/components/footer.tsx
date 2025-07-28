@@ -95,21 +95,21 @@ export default function Footer() {
                   {t.footer.links.workTogether}
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button onClick={() => scrollToSection("newsletter")} className="hover:text-white transition-colors text-left">
                   {t.footer.links.newsletter}
                 </button>
-              </li>
+              </li> */}
               <li>
                 <a href="https://simon-heistermann.de/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   {t.footer.links.portfolio}
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="hover:text-white transition-colors">
                   {t.footer.links.blog}
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

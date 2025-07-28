@@ -1,14 +1,23 @@
 import { useLanguage } from "@/hooks/use-language";
 import { Button } from "@/components/ui/button";
-import { Code, Plane, GraduationCap } from "lucide-react";
+import { Plane, GraduationCap } from "lucide-react";
 import { FaLinkedin, FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function HeroSection() {
   const { t } = useLanguage();
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
+
+  // Ref für das Bild, um fetchpriority manuell zu setzen
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current) {
+      imgRef.current.setAttribute("fetchpriority", "high");
+    }
+  }, []);
 
   const typingPhrases = [
     "Creative Projects",
@@ -18,7 +27,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     const currentPhrase = typingPhrases[currentPhraseIndex];
-    
+
     if (isTyping) {
       if (displayText.length < currentPhrase.length) {
         const timeout = setTimeout(() => {
@@ -190,7 +199,15 @@ export default function HeroSection() {
               className="relative w-full h-96 rounded-2xl shadow-2xl overflow-hidden"
               style={{ background: "var(--card)" }}
             >
-              <img src="/images/hero_image.jpeg"  alt="Mein professionelles Foto" draggable={false} className="absolute inset-0 w-full h-full rounded-2xl object-cover shadow-lg" style={{ objectPosition: "center 70%" }}/>
+              <img
+                ref={imgRef}
+                src="/images/hero_image.jpeg"
+                alt="Mein professionelles Foto"
+                draggable={false}
+                loading="eager"
+                className="absolute inset-0 w-full h-full rounded-2xl object-cover shadow-lg"
+                style={{ objectPosition: "center 70%" }}
+              />
             </div>
             <div
               className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl rotate-12 shadow-lg flex items-center justify-center animate-float"

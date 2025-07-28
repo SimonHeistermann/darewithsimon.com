@@ -32,7 +32,7 @@ export default function Home() {
       <StudentSection />
       <TravelerSection />
       <BrandSection />
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
       <ContactSection />
       <Footer />
     </div>

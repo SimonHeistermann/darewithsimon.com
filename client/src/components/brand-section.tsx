@@ -32,7 +32,7 @@ export default function BrandSection() {
                 {t.brand.subtitle}
               </p>
             </div>
-            <div className="space-y-6">
+            {/* <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                 <div className="flex items-center space-x-3 mb-3">
                   <div className="w-10 h-10 bg-[color:var(--primary)] rounded-lg flex items-center justify-center">
@@ -53,7 +53,7 @@ export default function BrandSection() {
               >
                 {t.brand.subscribeNewsletter}
               </Button>
-            </div>
+            </div> */}
           </div>
           <div className="space-y-6 animate-slide-up">
             <div className="bg-white rounded-2xl p-6 shadow-lg">
@@ -72,7 +72,7 @@ export default function BrandSection() {
                   </div>
                   <ExternalLink className="text-gray-400" size={16} />
                 </a>
-                <a href="https://www.youtube.com/@darewithsimon" target="_blank" rel="noopener noreferrer"
+                {/* <a href="https://www.youtube.com/@darewithsimon" target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
                   <div className="flex items-center space-x-3">
                     <FaYoutube className="text-red-600 text-xl" />
@@ -82,7 +82,7 @@ export default function BrandSection() {
                     </div>
                   </div>
                   <ExternalLink className="text-gray-400" size={16} />
-                </a>
+                </a> */}
                 <a href="https://www.instagram.com/darewithsimon/" target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 bg-pink-50 rounded-lg hover:bg-pink-100 transition-colors">
                   <div className="flex items-center space-x-3">
@@ -94,7 +94,7 @@ export default function BrandSection() {
                   </div>
                   <ExternalLink className="text-gray-400" size={16} />
                 </a>
-                <a href="#" className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                {/* <a href="#" className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                   <div className="flex items-center space-x-3">
                     <FaTiktok className="text-gray-800 text-xl" />
                     <div>
@@ -103,18 +103,16 @@ export default function BrandSection() {
                     </div>
                   </div>
                   <ExternalLink className="text-gray-400" size={16} />
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="bg-[color:var(--muted)] rounded-2xl p-6">
               <h3 className="font-semibold text-[color:var(--foreground)] mb-4">{t.brand.latestContent}</h3>
               <div className="space-y-3">
                 {[
-                  { title: "5 TypeScript Tips for Angular Developers", meta: "2 days ago • YouTube" },
-                  { title: "My First Week at Tomorrow University", meta: "1 week ago • Blog" },
-                  { title: "Tokyo Travel Guide: Hidden Gems", meta: "2 weeks ago • Instagram" },
-                ].map((item, idx) => (
-                  <a key={idx} href="#" className="flex justify-between items-center bg-white hover:bg-gray-100 transition p-3 rounded-lg cursor-pointer">
+                  { title: "Coming soon", meta: "", link: "#" },
+                ].map((item, idx, link) => (
+                  <a key={idx} href={item.link} className="flex justify-between items-center bg-white hover:bg-gray-100 transition p-3 rounded-lg cursor-pointer">
                     <div>
                       <p className="text-sm font-medium text-[color:var(--foreground)]">{item.title}</p>
                       <p className="text-xs text-gray-600">{item.meta}</p>

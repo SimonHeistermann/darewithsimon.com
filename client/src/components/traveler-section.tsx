@@ -25,7 +25,10 @@ export default function TravelerSection() {
             {t.traveler.subtitle}
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl mb-4">Coming soon...</h2>
+        </div>
+        {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           <div
             className="md:col-span-2 lg:col-span-2 rounded-2xl overflow-hidden border shadow-sm transition-shadow cursor-pointer hover:shadow-md hover:scale-105 transform flex flex-col"
             style={{
@@ -102,7 +105,7 @@ export default function TravelerSection() {
               <li>• Travel photography tips</li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
