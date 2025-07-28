@@ -85,6 +85,7 @@ export default {
     screens: {
       ...defaultTheme.screens,
       nav: "850px",
+      'max-xs': { max: "380px" },
     },
   },
   plugins: [

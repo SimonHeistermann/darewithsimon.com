@@ -98,7 +98,7 @@ app.listen(port, () => {
 });
 
 app.post("/contact", async (req, res) => {
-  const { name, email, subject, message } = req.body;
+  const { name, email, subject, message, consentAccepted } = req.body;
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ message: "Alle Felder sind erforderlich." });
   }
@@ -127,6 +127,8 @@ app.post("/contact", async (req, res) => {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Betreff:</strong> ${subject}</p>
         <p><strong>Nachricht:</strong><br>${message.replace(/\n/g, "<br>")}</p>
+        <hr>
+        <p><strong>Datenschutz & AGB akzeptiert:</strong> ${consentAccepted ? "Ja" : "Nein"}</p>
       `,
     };
 

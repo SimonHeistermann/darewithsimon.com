@@ -49,15 +49,15 @@ export default function Footer() {
               <a href="https://www.linkedin.com/in/simon-maximilian-heistermann-419531250/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaLinkedin />
               </a>
-              <a href="https://www.youtube.com/@darewithsimon" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              {/* <a href="https://www.youtube.com/@darewithsimon" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaYoutube />
-              </a>
+              </a> */}
               <a href="https://www.instagram.com/darewithsimon/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaInstagram />
               </a>
-              <a href="#" rel="noopener noreferrer" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+              {/* <a href="#" rel="noopener noreferrer" target="_blank" className="text-gray-400 hover:text-white transition-colors">
                 <FaTiktok />
-              </a>
+              </a> */}
             </div>
           </div>
 

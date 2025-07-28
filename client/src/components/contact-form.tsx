@@ -172,7 +172,6 @@ export default function ContactForm() {
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-      {/* Name + Email */}
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-1">
           <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700">
@@ -205,8 +204,6 @@ export default function ContactForm() {
           {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
         </div>
       </div>
-
-      {/* Subject */}
       <div className="space-y-1">
         <label htmlFor="contact-subject" className="block text-sm font-medium text-gray-700">
           {t.contact.form.subject} *

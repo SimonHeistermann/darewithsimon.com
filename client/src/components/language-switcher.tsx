@@ -10,7 +10,7 @@ export default function LanguageSwitcher() {
   const activeIndex = languages.indexOf(language);
 
   return (
-    <div className="relative flex w-fit rounded-full bg-[var(--muted)] p-1">
+    <div className="relative flex w-fit rounded-full bg-[var(--muted)] p-1 max-xs:hidden">
       <motion.div
         className="h-7 w-14 rounded-full bg-[var(--brand-primary)] absolute z-0"
         initial={false}

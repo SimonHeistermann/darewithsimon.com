@@ -61,7 +61,6 @@ export default function ContactSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* LEFT COLUMN: Intro & Info */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
@@ -127,7 +126,7 @@ export default function ContactSection() {
                 >
                   <FaInstagram className="text-2xl" />
                 </a>
-                <button
+                {/* <button
                   onClick={handleCVDownload}
                   className="text-gray-400 transition-colors hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-full p-1 flex items-center justify-center"
                   aria-label="Download CV"
@@ -136,7 +135,7 @@ export default function ContactSection() {
                     <FileText className="text-2xl" />
                     <Download className="absolute -bottom-1 -right-1 w-3 h-3 text-green-600" />
                   </div>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

@@ -9,8 +9,6 @@ export default function HeroSection() {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
-
-  // Ref für das Bild, um fetchpriority manuell zu setzen
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -161,37 +159,45 @@ export default function HeroSection() {
             </div>
             <div className="flex items-center space-x-6">
               <a
-                href="https://www.linkedin.com/in/..."
+                href="https://www.linkedin.com/in/simon-maximilian-heistermann-419531250/"
+                target="_blank" 
+                rel="noopener noreferrer"
                 style={{ color: "var(--muted-foreground)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--linkedin-blue)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted-foreground)")}
               >
                 <FaLinkedin className="text-xl" />
               </a>
-              <a
+              {/* <a
                 href="#"
+                target="_blank" 
+                rel="noopener noreferrer"
                 style={{ color: "var(--muted-foreground)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--youtube-red)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted-foreground)")}
               >
                 <FaYoutube className="text-xl" />
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="https://www.instagram.com/darewithsimon/"
+                target="_blank" 
+                rel="noopener noreferrer"
                 style={{ color: "var(--muted-foreground)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--instagram-pink)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted-foreground)")}
               >
                 <FaInstagram className="text-xl" />
               </a>
-              <a
+              {/* <a
                 href="#"
+                target="_blank" 
+                rel="noopener noreferrer"
                 style={{ color: "var(--muted-foreground)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--tiktok-black)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted-foreground)")}
               >
                 <FaTiktok className="text-xl" />
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="relative animate-slide-up">
@@ -201,12 +207,12 @@ export default function HeroSection() {
             >
               <img
                 ref={imgRef}
-                src="/images/hero_image.jpeg"
+                src="/images/hero_image_2.png"
                 alt="Mein professionelles Foto"
                 draggable={false}
                 loading="eager"
                 className="absolute inset-0 w-full h-full rounded-2xl object-cover shadow-lg"
-                style={{ objectPosition: "center 70%" }}
+                style={{ objectPosition: "center 20%" }}
               />
             </div>
             <div
