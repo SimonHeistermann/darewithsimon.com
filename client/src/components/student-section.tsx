@@ -123,8 +123,11 @@ export default function StudentSection() {
                         {t.student.justStarted}
                       </span>
                     </div>
-                    <div className="w-full rounded-full h-2 bg-[var(--muted)]">
-                      <div className="h-2 rounded-full bg-[var(--brand-primary)] w-2"></div>
+                    <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-[var(--brand-primary)] rounded-full transition-all duration-1000 ease-in-out"
+                        style={{ width: "1%" }}
+                      ></div>
                     </div>
                   </div>
                   <div

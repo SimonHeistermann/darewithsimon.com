@@ -44,6 +44,7 @@ export default function TravelerSection() {
                 alt="Japan Travel"
                 className="w-full h-full object-cover rounded-t-2xl"
                 style={{ objectPosition: "center 70%" }}
+                loading="lazy"
               />
             </div>
             <div className="p-6 flex flex-col justify-between flex-grow">
