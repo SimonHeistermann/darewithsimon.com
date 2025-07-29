@@ -112,7 +112,7 @@ export default function ContactSection() {
                   <FaLinkedin className="text-2xl" />
                 </a>
                 <a
-                  href="mailto:buisness@darewithsimon.com"
+                  href="mailto:business@darewithsimon.com"
                   rel="noopener noreferrer"
                   className="text-gray-400 transition-colors hover:text-red-600"
                 >

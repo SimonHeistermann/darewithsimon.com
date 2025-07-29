@@ -69,7 +69,7 @@ export default function Navigation() {
                 className="font-semibold text-lg text-gradient"
                 style={{ color: "hsl(var(--foreground))" }}
               >
-                darewithsimon
+                DareWithSimon
               </span>
             </a>
           </div>

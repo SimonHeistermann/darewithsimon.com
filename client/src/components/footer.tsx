@@ -40,7 +40,7 @@ export default function Footer() {
                 draggable={false}
                 style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}
               />
-              <span className="font-semibold text-lg">darewithsimon</span>
+              <span className="font-semibold text-lg">DareWithSimon</span>
             </a>
             <p className="text-gray-400 mb-4 max-w-md">
               {t.footer.description}
