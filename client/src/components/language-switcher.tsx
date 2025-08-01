@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
             key={lang}
             onClick={() => setLanguage(lang)}
             className={`text-xs px-3 py-1 h-7 w-14 rounded-full transition-colors duration-200 ${
-              language === lang ? "text-white" : "text-[var(--foreground)]"
+              language === lang ? "text-white" : "text-[var(--foreground2)]"
             }`}
           >
             {lang.toUpperCase()}

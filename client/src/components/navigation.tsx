@@ -87,10 +87,10 @@ export default function Navigation() {
                 onClick={() => scrollToSection(item.section)}
                 className="transition-all transform hover:scale-105 duration-200"
                 style={{
-                  color: "hsl(var(--muted-foreground))",
+                  color: "var(--muted-foreground2",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(var(--brand-primary))")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(var(--muted-foreground))")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-primary")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted-foreground2")}
               >
                 {item.label}
               </button>
@@ -117,8 +117,6 @@ export default function Navigation() {
               {t.nav.contact}
             </Button>
           </div>
-
-          {/* MOBILE HEADER */}
           <div className="nav:hidden flex items-center space-x-2">
             <LanguageSwitcher />
             <Button
@@ -127,15 +125,15 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="transition-colors"
               style={{
-                color: "hsl(var(--muted-foreground))",
+                color: "var(--muted-foreground2)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "hsl(var(--muted) / 0.8)";
-                e.currentTarget.style.color = "hsl(var(--foreground))";
+                e.currentTarget.style.backgroundColor = "hsl(var(--muted2) / 0.8)";
+                e.currentTarget.style.color = "var(--brand-primary)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "hsl(var(--muted-foreground))";
+                e.currentTarget.style.color = "var(--muted-foreground2)";
               }}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -164,7 +162,7 @@ export default function Navigation() {
                   onClick={() => scrollToSection(item.section)}
                   className="block px-3 py-2 w-full text-left rounded-md transition-all transform hover:scale-[1.05] hover:bg-[hsl(var(--muted)/0.5)] hover:text-[hsl(var(--brand-primary))]"
                   style={{
-                    color: "hsl(var(--muted-foreground))",
+                    color: "var(--muted-foreground2)",
                     borderRadius: "var(--radius)",
                   }}
                 >
@@ -176,7 +174,7 @@ export default function Navigation() {
                 onClick={() => scrollToSection("contact")}
                 className="block px-3 py-2 w-full text-left rounded-md font-semibold transition-all transform hover:scale-[1.05]"
                 style={{
-                  color: "hsl(var(--primary-foreground))",
+                  color: "var(--muted-foreground2)",
                   backgroundColor: "hsl(var(--brand-primary))",
                   borderRadius: "var(--radius)",
                 }}

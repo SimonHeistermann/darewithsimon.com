@@ -77,12 +77,12 @@ export default function HeroSection() {
                 ></div>
                 <span
                   className="text-sm font-medium"
-                  style={{ color: "var(--muted-foreground)" }}
+                  style={{ color: "var(--muted-foreground2)" }}
                 >
                   {t.hero.availableForProjects}
                 </span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: "var(--foreground)" }}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: "var(--foreground2)" }}>
                 <span>{t.hero.greeting}</span>
                 <br />
                 <span className="text-gradient">{t.hero.name}</span>
@@ -101,7 +101,7 @@ export default function HeroSection() {
               </div>
               <p
                 className="text-xl leading-relaxed max-w-lg"
-                style={{ color: "var(--muted-foreground)" }}
+                style={{ color: "var(--muted-foreground2)" }}
               >
                 {t.hero.description.split("Angular").map((part, index) =>
                   index === 0 ? (
@@ -151,7 +151,7 @@ export default function HeroSection() {
                 className="transition-colors"
                 style={{
                   borderColor: "var(--border)",
-                  color: "var(--foreground)",
+                  color: "var(--foreground2)",
                 }}
               >
                 {t.hero.getInTouch}
@@ -232,7 +232,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="text-center mt-16 animate-fade-in" style={{ color: "var(--foreground)" }}>
+        <div className="text-center mt-16 animate-fade-in" style={{ color: "var(--foreground2)" }}>
           <blockquote className="text-lg md:text-xl font-medium italic max-w-3xl mx-auto">
             "{inspirationalQuote}"
           </blockquote>

@@ -20,13 +20,13 @@ export default function TravelerSection() {
               Travel Adventures
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">{t.traveler.title}</h2>
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: "var(--muted-foreground)" }}>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "var(--foreground2)" }}>{t.traveler.title}</h2>
+          <p className="text-xl max-w-3xl mx-auto" style={{ color: "var(--muted-foreground2)" }}>
             {t.traveler.subtitle}
           </p>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl mb-4">Coming soon...</h2>
+          <h2 className="text-2xl sm:text-3xl mb-4" style={{ color: "var(--foreground2)" }}>Coming soon...</h2>
         </div>
         {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           <div

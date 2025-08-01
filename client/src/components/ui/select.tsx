@@ -38,8 +38,8 @@ React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
       hasError
         ? "border-red-500 bg-red-50 focus:ring-red-300"
         : isValid
-        ? "border-green-500 bg-green-50 focus:ring-green-300"
-        : "border-gray-300 focus:ring-teal-400",
+        ? "border-black focus: black-300"
+        : "border-black-300 focus: black-400",
       className
     )}
     {...props}

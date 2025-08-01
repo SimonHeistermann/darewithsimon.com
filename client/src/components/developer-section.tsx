@@ -65,7 +65,7 @@ export default function DeveloperSection() {
             <div className="text-3xl mb-2">{item.icon}</div>
             <span
               className="text-sm font-medium"
-              style={{ color: "var(--foreground)" }}
+              style={{ color: "var(--foreground2)" }}
             >
               {item.label}
             </span>
@@ -102,13 +102,13 @@ export default function DeveloperSection() {
         >
           <h2
             className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ color: "var(--foreground)" }}
+            style={{ color: "var(--foreground2)" }}
           >
             {t.developer.title}
           </h2>
           <p
             className="text-xl max-w-3xl mx-auto"
-            style={{ color: "var(--muted-foreground)" }}
+            style={{ color: "var(--muted-foreground2)" }}
           >
             {t.developer.subtitle}
           </p>
@@ -120,7 +120,6 @@ export default function DeveloperSection() {
             servicesVisible ? "visible" : ""
           }`}
         >
-          {/* Angular */}
           <div
             className="p-6 rounded-xl border hover:shadow-lg transition-all hover:scale-105"
             style={{
@@ -145,8 +144,6 @@ export default function DeveloperSection() {
               {t.developer.services.angular.description}
             </p>
           </div>
-
-          {/* Responsive */}
           <div
             className="p-6 rounded-xl border hover:shadow-lg transition-all hover:scale-105"
             style={{
@@ -171,8 +168,6 @@ export default function DeveloperSection() {
               {t.developer.services.responsive.description}
             </p>
           </div>
-
-          {/* JavaScript */}
           <div
             className="p-6 rounded-xl border hover:shadow-lg transition-all hover:scale-105"
             style={{
@@ -198,21 +193,17 @@ export default function DeveloperSection() {
             </p>
           </div>
         </div>
-
-        {/* 🔁 TECH STACK SCROLLER */}
         <div className="rounded-2xl p-8 mb-16" style={{ backgroundColor: "var(--muted)" }}>
-          <h3 className="text-2xl font-semibold mb-6 text-center" style={{ color: "var(--foreground)" }}>
+          <h3 className="text-2xl font-semibold mb-6 text-center" style={{ color: "var(--foreground2)" }}>
             {t.developer.techStack}
           </h3>
           <InfiniteSlider />
           <div className="mt-6 text-center">
-            <p className="text-sm" style={{ color: "var(--muted-foreground)" }}>
+            <p className="text-sm" style={{ color: "var(--muted-foreground2)" }}>
               📚 <strong>{t.developer.learningNext}</strong>
             </p>
           </div>
         </div>
-
-        {/* CTA */}
         <div
           className="rounded-2xl p-8 text-white"
           style={{

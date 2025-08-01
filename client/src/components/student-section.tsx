@@ -18,11 +18,11 @@ export default function StudentSection() {
               </div>
               <h2
                 className="text-3xl sm:text-4xl font-bold"
-                style={{ color: "var(--foreground)" }}
+                style={{ color: "var(--foreground2)" }}
               >
                 {t.student.title}
               </h2>
-              <p className="text-lg leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
+              <p className="text-lg leading-relaxed" style={{ color: "var(--muted-foreground2)" }}>
                 {t.student.subtitle}
               </p>
             </div>
@@ -33,11 +33,11 @@ export default function StudentSection() {
                   style={{ backgroundColor: "var(--brand-primary)" }}
                 ></div>
                 <div>
-                  <h4 className="font-semibold" style={{ color: "var(--foreground)" }}>
+                  <h4 className="font-semibold" style={{ color: "var(--foreground2)" }}>
                     {t.student.university}
                   </h4>
-                  <p style={{ color: "var(--muted-foreground)" }}>{t.student.program}</p>
-                  <p className="text-sm" style={{ color: "var(--muted)" }}>
+                  <p style={{ color: "var(--muted-foreground2)" }}>{t.student.program}</p>
+                  <p className="text-sm" style={{ color: "var(--muted-foreground2)" }}>
                     {t.student.duration}
                   </p>
                 </div>
@@ -48,10 +48,10 @@ export default function StudentSection() {
                   style={{ backgroundColor: "var(--border)" }}
                 ></div>
                 <div>
-                  <h4 className="font-semibold" style={{ color: "var(--foreground)" }}>
+                  <h4 className="font-semibold" style={{ color: "var(--foreground2)" }}>
                     {t.student.focusAreas}
                   </h4>
-                  <p style={{ color: "var(--muted-foreground)" }}>{t.student.focusAreasDesc}</p>
+                  <p style={{ color: "var(--muted-foreground2)" }}>{t.student.focusAreasDesc}</p>
                 </div>
               </div>
             </div>
@@ -64,10 +64,10 @@ export default function StudentSection() {
                 boxShadow: "var(--shadow-soft)",
               }}
             >
-              <h4 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>
+              <h4 className="font-semibold mb-3" style={{ color: "var(--foreground2)" }}>
                 {t.student.contentFocusTitle}
               </h4>
-              <p className="mb-4" style={{ color: "var(--muted-foreground)" }}>
+              <p className="mb-4" style={{ color: "var(--muted-foreground2)" }}>
                 {t.student.contentFocusDesc}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -113,11 +113,11 @@ export default function StudentSection() {
                   <University className="text-white text-2xl" />
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold" style={{ color: "var(--foreground)" }}>
+                  <h3 className="text-xl font-semibold" style={{ color: "var(--foreground2)" }}>
                     {t.student.university}
                   </h3>
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between" style={{ color: "var(--muted-foreground)" }}>
+                    <div className="flex items-center justify-between" style={{ color: "var(--muted-foreground2)" }}>
                       <span className="text-sm">{t.student.progress}</span>
                       <span className="text-sm font-medium" style={{ color: "var(--brand-primary)" }}>
                         {t.student.justStarted}
@@ -135,7 +135,7 @@ export default function StudentSection() {
                     style={{ backgroundColor: "var(--card)", color: "var(--card-foreground)" }}
                   >
                     <h4 className="text-sm font-semibold mb-2">{t.student.currentFocus}</h4>
-                    <ul className="text-sm space-y-1" style={{ color: "var(--muted-foreground)" }}>
+                    <ul className="text-sm space-y-1" style={{ color: "var(--muted-foreground2)" }}>
                       <li>• Responsible Business Practices</li>
                       <li>• Digital Innovation Management</li>
                       <li>• Sustainable Development Goals</li>

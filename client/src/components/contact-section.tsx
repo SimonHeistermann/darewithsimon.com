@@ -41,7 +41,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20" style={{ backgroundColor: "var(--background2)" }}>
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
@@ -63,10 +63,10 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[color:var(--foreground2)]">
                 {t.contact.title}
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lgleading-relaxed" style={{ color: "var(--muted-foreground2)" }}>
                 {t.contact.subtitle}
               </p>
             </div>
@@ -77,8 +77,8 @@ export default function ContactSection() {
                   <Code className="text-red-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{t.contact.services.webDev.title}</h3>
-                  <p className="text-gray-600">{t.contact.services.webDev.description}</p>
+                  <h3 className="font-semibold text-[color:var(--foreground2)] mb-1">{t.contact.services.webDev.title}</h3>
+                  <p style={{ color: "var(--muted-foreground2)" }}>{t.contact.services.webDev.description}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -86,8 +86,8 @@ export default function ContactSection() {
                   <Users className="text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{t.contact.services.collaborations.title}</h3>
-                  <p className="text-gray-600">{t.contact.services.collaborations.description}</p>
+                  <h3 className="font-semibold text-[color:var(--foreground2)] mb-1">{t.contact.services.collaborations.title}</h3>
+                  <p style={{ color: "var(--muted-foreground2)" }}>{t.contact.services.collaborations.description}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -95,8 +95,8 @@ export default function ContactSection() {
                   <Coffee className="text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{t.contact.services.sayHi.title}</h3>
-                  <p className="text-gray-600">{t.contact.services.sayHi.description}</p>
+                  <h3 className="font-semibold text-[color:var(--foreground2)] mb-1">{t.contact.services.sayHi.title}</h3>
+                  <p style={{ color: "var(--muted-foreground2)" }}>{t.contact.services.sayHi.description}</p>
                 </div>
               </div>
             </div>

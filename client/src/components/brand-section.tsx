@@ -25,10 +25,10 @@ export default function BrandSection() {
                   Personal Brand
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[color:var(--foreground)]">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[color:var(--foreground2)]">
                 {t.brand.title}
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg leading-relaxed" style={{ color: "var(--muted-foreground2)" }}>
                 {t.brand.subtitle}
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function BrandSection() {
               </div>
             </div>
             <div className="bg-[color:var(--muted)] rounded-2xl p-6">
-              <h3 className="font-semibold text-[color:var(--foreground)] mb-4">{t.brand.latestContent}</h3>
+              <h3 className="font-semibold text-[color:var(--foreground2)] mb-4">{t.brand.latestContent}</h3>
               <div className="space-y-3">
                 {[
                   { title: "Coming soon", meta: "", link: "#" },
