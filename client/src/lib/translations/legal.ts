@@ -99,7 +99,7 @@ export const legalTranslations = {
       legal: {
         title: "Legal Notice",
         provider: {
-          title: "Information according to § 5 TMG",
+          title: "Information pursuant to Section 5 DDG (Digital Services Act of Germany)",
           name: "Simon Heistermann",
           company: "Company: Simon Heistermann",
           role: "Frontend Developer & Content Creator",
@@ -278,7 +278,7 @@ export const legalTranslations = {
         legal: {
             title: "Impressum",
             provider: {
-              title: "Angaben gemäß § 5 TMG",
+              title: "Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)",
               name: "Simon Heistermann",
               company: "Firma: Simon Heistermann",
               role: "Frontend-Entwickler & Content Creator",
