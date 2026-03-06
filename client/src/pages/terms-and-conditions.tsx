@@ -203,11 +203,7 @@ export default function TermsConditions() {
 
               <div className="mt-12 pt-8 border-t border-border">
                 <p className="text-sm text-muted-foreground">
-                  {t.terms.lastUpdated} {new Date().toLocaleDateString(language === 'de' ? 'de-DE' : 'en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+                  {t.terms.lastUpdated} {language === 'de' ? 'März 2026' : 'March 2026'}
                 </p>
               </div>
             </div>

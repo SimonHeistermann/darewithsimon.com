@@ -41,7 +41,7 @@ export const commonTranslations = {
             terms: "Terms & Conditions"
           } 
         },
-        copyright: "© 2025 Simon Heistermann. Built with passion for code, learning, and adventure."
+        copyright: "© 2025–2026 Simon Heistermann. Built with passion for code, learning, and adventure."
       }
     },
     de: {
@@ -85,7 +85,7 @@ export const commonTranslations = {
             terms: "AGB"
           }
         },
-        copyright: "© 2025 Simon Heistermann. Gebaut mit Leidenschaft für Code, Lernen und Abenteuer."
+        copyright: "© 2025–2026 Simon Heistermann. Gebaut mit Leidenschaft für Code, Lernen und Abenteuer."
       }
     }
 };

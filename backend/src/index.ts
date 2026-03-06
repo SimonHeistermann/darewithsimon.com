@@ -6,6 +6,14 @@ import fetch from "node-fetch";
 import rateLimit from "express-rate-limit";
 import nodemailer from "nodemailer";
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 const app = express();
 app.set("trust proxy", 1);
@@ -104,9 +112,6 @@ app.post("/contact", async (req, res) => {
   }
 
   try {
-    console.log("SMTP_HOST:", process.env.SMTP_HOST);
-    console.log("SMTP_PORT:", process.env.SMTP_PORT);
-
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || "465"),
@@ -123,10 +128,10 @@ app.post("/contact", async (req, res) => {
       subject: `Neue Anfrage von ${name} – ${subject}`,
       html: `
         <h2>Neue Kontaktanfrage</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Betreff:</strong> ${subject}</p>
-        <p><strong>Nachricht:</strong><br>${message.replace(/\n/g, "<br>")}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Betreff:</strong> ${escapeHtml(subject)}</p>
+        <p><strong>Nachricht:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
         <hr>
         <p><strong>Datenschutz & AGB akzeptiert:</strong> ${consentAccepted ? "Ja" : "Nein"}</p>
       `,

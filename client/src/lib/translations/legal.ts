@@ -3,113 +3,221 @@ export const legalTranslations = {
     en: {
       privacy: {
         title: "Privacy Policy",
+        contents: {
+          title: "Contents",
+          items: [
+            "Controller",
+            "Data Protection Officer",
+            "Data We Collect",
+            "Purposes and Legal Basis",
+            "Third-Party Processors",
+            "International Data Transfers",
+            "Cookies and Similar Technologies",
+            "Retention Periods",
+            "Your Rights",
+            "Supervisory Authority",
+            "Automated Decision-Making",
+            "Obligation to Provide Data",
+            "Changes to This Policy",
+            "Severability"
+          ]
+        },
         overview: {
-          title: "1. Privacy at a Glance",
-          description: "This privacy policy informs you about how I collect, use, and protect personal data when you visit my website."
+          title: "1. Controller",
+          description: "The controller responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:"
         },
         responsible: {
-          title: "2. Data Controller",
-          description: "The data controller for data processing on this website is:",
-          contact: "Simon Heistermann",
-          company: "Company: Simon Heistermann",
+          title: "1. Controller",
+          description: "The controller responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:",
+          contact: "Simon Maximilian Heistermann",
+          company: "",
           address: "Mutter-Teresa-Weg 6",
           city: "46325 Borken",
           country: "Germany",
-          email: "E-Mail:",
+          email: "Email:",
           imprintLink: "More information can be found in the ",
           imprint: "Legal Notice"
         },
+        dpo: {
+          title: "2. Data Protection Officer",
+          description: "We are not legally required to appoint a data protection officer pursuant to § 38 of the German Federal Data Protection Act (BDSG). For any data protection inquiries, please contact us directly at simon@heistermann-solutions.de."
+        },
         dataCollection: {
-          title: "3. Collection and Storage of Personal Data",
-          description: "I only process personal data when you actively provide it, e.g. via the contact form or newsletter form.",
-          items: [
-            "Name, email address and message if applicable (contact form)",
-            "Name, email address (newsletter registration)",
-            "Access and usage data (automatically through server or third parties)"
-          ]
+          title: "3. Data We Collect",
+          description: "We process personal data that you provide to us or that is automatically collected when you use our website.",
+          subsections: {
+            contactForm: {
+              title: "3.1 Contact Form Data",
+              description: "When you submit a contact form, we collect the following information:",
+              items: [
+                "Full name and email address",
+                "Subject of inquiry (Project, Collaboration, Question, Other)",
+                "Your message",
+                "Consent confirmation (privacy policy and terms acceptance)"
+              ]
+            },
+            newsletter: {
+              title: "3.2 Newsletter Registration",
+              description: "When you sign up for the newsletter, we collect:",
+              items: [
+                "Email address",
+                "Consent confirmation",
+                "Language preference"
+              ]
+            },
+            technical: {
+              title: "3.3 Technical Data",
+              description: "When you visit our website, the following data is automatically collected by our hosting provider:",
+              items: [
+                "IP address",
+                "Browser type and version",
+                "Operating system",
+                "Date, time, and duration of access",
+                "Referring URL",
+                "Pages visited"
+              ]
+            }
+          }
         },
         purpose: {
-          title: "4. Purpose of Data Processing",
-          description: "The processing is carried out for:",
+          title: "4. Purposes and Legal Basis",
+          description: "We process your personal data for the following purposes and on the following legal bases:",
           items: [
-            "Processing your inquiry",
-            "Sending my newsletter",
-            "Website optimization",
-            "Ensuring secure operation"
+            "Contact form processing — Art. 6(1)(b) GDPR (pre-contractual measures at your request)",
+            "Newsletter delivery — Art. 6(1)(a) GDPR (your consent via double opt-in)",
+            "Email notifications — Art. 6(1)(f) GDPR (legitimate interest in effective communication)",
+            "Website hosting & security — Art. 6(1)(f) GDPR (legitimate interest in operating a secure website)"
           ]
         },
         legalBasis: {
-          title: "5. Legal Basis",
-          description: "Data processing is carried out in accordance with Art. 6 Para. 1 lit. a, b and f GDPR."
+          title: "4. Purposes and Legal Basis",
+          description: "We process your personal data for the following purposes and on the following legal bases:"
         },
         thirdParties: {
-          title: "6. Disclosure to Third Parties",
-          description: "Disclosure only occurs if this is legally permitted or you have consented. Service providers such as hosting providers or newsletter tools may receive access within the framework of a data processing agreement."
+          title: "5. Third-Party Processors",
+          description: "We use the following third-party service providers to operate our website. Each processor has entered into a Data Processing Agreement (DPA) with us in accordance with Art. 28 GDPR."
+        },
+        thirdPartyProcessors: {
+          items: [
+            {
+              name: "Render Services, Inc.",
+              location: "San Francisco, California, USA",
+              purpose: "Backend hosting and API server.",
+              data: "Technical access data (IP address, request logs), contact form data in transit."
+            },
+            {
+              name: "Brevo (Sendinblue)",
+              location: "Paris, France / Berlin, Germany",
+              purpose: "Newsletter management and email marketing with double opt-in confirmation.",
+              data: "Email address, language preference, subscription status."
+            },
+            {
+              name: "KAS Server (All-Inkl)",
+              location: "Germany",
+              purpose: "SMTP email delivery for contact form notifications.",
+              data: "Email content, sender/recipient addresses, delivery metadata."
+            }
+          ]
         },
         newsletter: {
           title: "7. Newsletter",
-          description: "If you sign up for the newsletter, we use your email address and possibly your name to send you regular information. Registration is done using the double opt-in process.",
-          unsubscribe: "You can unsubscribe at any time. Your data will then be deleted immediately."
+          description: "If you sign up for the newsletter, we use your email address to send you regular information. Registration is done using the double opt-in process via Brevo.",
+          unsubscribe: "You can unsubscribe at any time. Your data will then be deleted from our newsletter lists."
         },
         contactForm: {
           title: "8. Contact Form",
-          description: "If you send me inquiries via the form, your information will be stored for the purpose of processing and in case of follow-up questions."
+          description: "If you send inquiries via the contact form, your information (name, email, subject, message) will be transmitted to our backend server and forwarded via email. We do not store contact form submissions in a database — they are delivered as email notifications only."
+        },
+        internationalTransfers: {
+          title: "6. International Data Transfers",
+          description: "Our backend hosting provider Render is based in the United States. Data transfers to the US are conducted on the following legal bases:",
+          items: [
+            "Standard Contractual Clauses (SCCs) pursuant to Art. 46(2)(c) GDPR.",
+            "Brevo processes data primarily within the EU (France/Germany). No routine international transfer occurs for newsletter data.",
+            "KAS Server (All-Inkl) is based in Germany. No international data transfer occurs for email delivery."
+          ]
         },
         thirdPartyServices: {
           title: "9. Integration of Third-Party Services and Content",
-          description: "This website includes third-party content, e.g. YouTube videos, Instagram posts, TikToks, which are loaded by external servers. Your IP address may be transmitted to the respective service.",
-          providers: "The following third-party providers may process data:",
+          description: "This website may include third-party content (e.g. embedded social media links). External links are provided for convenience; clicking them takes you to third-party websites governed by their own privacy policies.",
+          providers: "Social media profiles linked from this website:",
           providersList: [
-            "Google Ireland Ltd. (YouTube)",
-            "LinkedIn Ireland Unlimited Company",
-            "Instagram (Meta Platforms Ireland Ltd.)",
-            "TikTok Technology Limited"
+            "LinkedIn (LinkedIn Ireland Unlimited Company)",
+            "Instagram (Meta Platforms Ireland Ltd.)"
           ]
         },
         cookies: {
-          title: "10. Cookies and Tracking",
-          description: "This website does not use cookies itself. However, third-party providers (e.g. YouTube) may set cookies. When embedding YouTube videos, this is done in a privacy-friendly manner via the \"nocookie\" variant."
+          title: "7. Cookies and Similar Technologies",
+          description: "This website does not use cookies. No cookie consent banner is required or displayed. We use your browser's localStorage to store your language preference (English/German) locally on your device. This data never leaves your browser and is not transmitted to our servers. You can clear it at any time through your browser settings."
+        },
+        retention: {
+          title: "8. Retention Periods",
+          description: "We retain your personal data only as long as necessary for the purposes for which it was collected:",
+          items: [
+            "Contact form submissions — delivered via email only, not stored in a database; email retention per provider policy",
+            "Newsletter subscription data — until you unsubscribe, then deleted from Brevo",
+            "Server/access logs (Render) — per hosting provider policy (typically 30 days)",
+            "localStorage data — until you clear your browser data"
+          ]
         },
         rights: {
-          title: "11. Your Rights",
+          title: "9. Your Rights",
           items: [
-            "Information about stored data",
-            "Correction of incorrect data",
-            "Deletion of your data (Art. 17 GDPR)",
-            "Restriction of processing (Art. 18 GDPR)",
-            "Data portability (Art. 20 GDPR)",
-            "Objection to processing (Art. 21 GDPR)"
+            "Right of access (Art. 15 GDPR) — You may request confirmation of whether we process your personal data and, if so, obtain a copy of that data.",
+            "Right to rectification (Art. 16 GDPR) — You may request correction of inaccurate or incomplete data.",
+            "Right to erasure (Art. 17 GDPR) — You may request deletion of your data, subject to legal retention obligations.",
+            "Right to restriction (Art. 18 GDPR) — You may request restriction of processing in certain circumstances.",
+            "Right to data portability (Art. 20 GDPR) — You may request your data in a structured, commonly used, machine-readable format.",
+            "Right to object (Art. 21 GDPR) — You may object to processing based on legitimate interests at any time, for reasons related to your particular situation.",
+            "Right to withdraw consent (Art. 7(3) GDPR) — Where processing is based on your consent, you may withdraw consent at any time without affecting the lawfulness of processing carried out before withdrawal."
           ],
-          contact: "Please contact me via the email address provided above."
+          contact: "To exercise any of these rights, please contact us at simon@heistermann-solutions.de. We will respond within one month of receiving your request."
         },
         complaint: {
-          title: "12. Right to Complain",
-          description: "You have the right to complain to the competent data protection supervisory authority."
+          title: "10. Supervisory Authority",
+          description: "You have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR). The competent supervisory authority is: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW), Postfach 20 04 44, 40102 Düsseldorf, Germany. Website: www.ldi.nrw.de"
+        },
+        automatedDecisions: {
+          title: "11. Automated Decision-Making",
+          description: "We do not use fully automated decision-making, including profiling, within the meaning of Art. 22 GDPR."
+        },
+        obligation: {
+          title: "12. Obligation to Provide Data",
+          description: "Contact form: Providing your name, email address, and message is necessary for us to respond to your inquiry. If you do not provide this data, we cannot process your request. Newsletter: Providing your email address is necessary to receive the newsletter."
         },
         terms: {
-          title: "14. Terms and Conditions",
+          title: "Terms and Conditions",
           description: "For more information about our terms and conditions and usage terms, please see our",
           link: "Terms and Conditions"
         },
         updates: {
-          title: "13. Currency and Amendment of this Privacy Policy",
-          description: "This privacy policy is currently valid and has the status:"
+          title: "13. Changes to This Policy",
+          description: "We may update this privacy policy from time to time to reflect changes in our practices or for legal, regulatory, or operational reasons. The \"Last updated\" date below reflects the most recent revision."
+        },
+        severability: {
+          title: "14. Severability",
+          description: "Should any provision of this privacy policy be held invalid or unenforceable, the remaining provisions shall remain in full force and effect."
         }
       },
       legal: {
         title: "Legal Notice",
+        trainingProject: {
+          title: "Training Project Disclaimer",
+          description: "This website is an independent training/portfolio project. It is NOT a real business, service, or commercial offering. No real transactions, services, or orders are processed through this website. The contact form and newsletter features were built for educational demonstration purposes. Any resemblance to a real commercial business is for demonstration purposes only.",
+          contact: "For questions about this project: simon@heistermann-solutions.de"
+        },
         provider: {
-          title: "Information pursuant to Section 5 DDG (Digital Services Act of Germany)",
-          name: "Simon Heistermann",
-          company: "Company: Simon Heistermann",
-          role: "Frontend Developer & Content Creator",
+          title: "Information pursuant to § 5 DDG",
+          name: "Simon Maximilian Heistermann",
+          company: "",
+          role: "",
           address: "Mutter-Teresa-Weg 6",
           city: "46325 Borken",
           country: "Germany"
         },
         contact: {
           title: "Contact",
-          email: "E-Mail:",
+          email: "Email:",
           privacyNote: "Notes on data protection can be found in our ",
           privacyPolicy: "Privacy Policy"
         },
@@ -120,37 +228,38 @@ export const legalTranslations = {
         },
         vatId: {
           title: "VAT ID",
-          description: "Value added tax identification number according to § 27 a Value Added Tax Act:",
+          description: "VAT identification number according to § 27a of the German Value Added Tax Act:",
           number: "DE454100405"
         },
         editorialResponsibility: {
-          title: "Editorially Responsible",
-          address: "[Address as above]"
+          title: "Responsible for Content",
+          description: "Responsible for content pursuant to § 18(2) MStV:",
+          address: "Mutter-Teresa-Weg 6, 46325 Borken, Germany"
         },
         euDispute: {
-          title: "EU Dispute Resolution",
+          title: "EU Online Dispute Resolution",
           description: "The European Commission provides a platform for online dispute resolution (ODR):",
           link: "https://ec.europa.eu/consumers/odr/",
-          email: "You can find our email address above in the legal notice."
+          email: "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."
         },
         consumerDispute: {
-          title: "Consumer Dispute Resolution/Universal Arbitration Board",
-          description: "We are not willing or obligated to participate in dispute resolution procedures before a consumer arbitration board."
+          title: "Liability for Links",
+          description: "Our website contains links to external websites of third parties, over whose content we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the linked pages is always responsible for the content of the linked pages."
         },
         contentLiability: {
           title: "Liability for Content",
-          paragraph1: "As a service provider, we are responsible for our own content on these pages according to § 7 Para. 1 TMG under general laws. According to §§ 8 to 10 TMG, however, we as a service provider are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
-          paragraph2: "Obligations to remove or block the use of information according to general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement. Upon becoming aware of corresponding legal violations, we will remove this content immediately."
+          paragraph1: "As a service provider, we are responsible for our own content on these pages in accordance with § 7(1) DDG and general laws. According to §§ 8 to 10 DDG, however, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
+          paragraph2: "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific legal violation. Upon becoming aware of corresponding legal violations, we will remove this content immediately."
         },
         linkLiability: {
           title: "Liability for Links",
-          paragraph1: "Our offer contains links to external websites of third parties, on whose contents we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the contents of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal contents were not recognizable at the time of linking.",
-          paragraph2: "However, a permanent content control of the linked pages is not reasonable without concrete evidence of a legal violation. If we become aware of legal violations, we will remove such links immediately."
+          paragraph1: "Our website contains links to external websites of third parties, over whose content we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the linked pages is always responsible for the content of the linked pages.",
+          paragraph2: "A permanent content review of the linked pages is not reasonable without concrete evidence of a legal violation. If we become aware of legal violations, we will remove such links immediately."
         },
         copyright: {
           title: "Copyright",
-          paragraph1: "The content and works created by the site operators on these pages are subject to German copyright law. The reproduction, editing, distribution and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this page are only permitted for private, non-commercial use.",
-          paragraph2: "Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, we ask for a corresponding note. If we become aware of legal violations, we will remove such content immediately."
+          paragraph1: "The content and works created by the site operators on these pages are subject to German copyright law. Reproduction, editing, distribution, and any kind of use outside the limits of copyright law require the written consent of the respective author or creator.",
+          paragraph2: "Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. Should you nevertheless become aware of a copyright infringement, we kindly ask for a corresponding notice. Upon becoming aware of legal violations, we will remove such content immediately."
         },
         lastUpdated: "Last updated:"
       },
@@ -158,7 +267,7 @@ export const legalTranslations = {
         title: "Terms and Conditions",
         general: {
           title: "1. Scope of Application",
-          paragraph1: "These General Terms and Conditions (GTC) apply to all business relationships between Simon Heistermann (hereinafter 'Contractor') and his clients or users (hereinafter 'Client' or 'User').",
+          paragraph1: "These General Terms and Conditions (GTC) apply to all business relationships between Simon Maximilian Heistermann (hereinafter 'Contractor') and his clients or users (hereinafter 'Client' or 'User').",
           paragraph2: "These GTC apply exclusively. Deviating, conflicting or supplementary GTC of the Client do not become part of the contract unless their validity is expressly agreed to in writing.",
           paragraph3: "These GTC also apply to all future business between the parties, even if they are not expressly agreed upon again."
         },
@@ -253,21 +362,21 @@ export const legalTranslations = {
           paragraph2: "."
         },
         termination: {
-          title: "14. Termination",
+          title: "15. Termination",
           paragraph1: "Contracts may be terminated by either party with 4 weeks' notice to the end of the month, unless otherwise agreed.",
           paragraph2: "The right to extraordinary termination for good cause remains unaffected."
         },
         applicableLaw: {
-          title: "15. Applicable Law and Jurisdiction",
+          title: "16. Applicable Law and Jurisdiction",
           paragraph1: "The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods.",
           paragraph2: "The place of jurisdiction is Borken, provided the Client is a merchant, legal entity under public law, or special fund under public law."
         },
         severability: {
-          title: "16. Severability Clause",
+          title: "17. Severability Clause",
           paragraph1: "Should individual provisions of these GTC be invalid or unenforceable, the validity of the remaining provisions shall not be affected."
         },
         changes: {
-          title: "17. Changes to the GTC",
+          title: "18. Changes to the GTC",
           paragraph1: "The Contractor reserves the right to change these GTC at any time.",
           paragraph2: "Changes will be communicated to clients in good time and are considered approved if no objection is raised within 4 weeks."
         },
@@ -277,11 +386,16 @@ export const legalTranslations = {
     de: {
         legal: {
             title: "Impressum",
+            trainingProject: {
+              title: "Hinweis: Übungsprojekt",
+              description: "Diese Website ist ein unabhängiges Übungs-/Portfolioprojekt. Es handelt sich NICHT um ein reales Unternehmen, eine reale Dienstleistung oder ein kommerzielles Angebot. Über diese Website werden keine echten Transaktionen, Dienstleistungen oder Bestellungen abgewickelt. Das Kontaktformular und die Newsletter-Funktionen wurden zu Bildungs- und Demonstrationszwecken entwickelt. Jede Ähnlichkeit mit einem realen kommerziellen Unternehmen dient ausschließlich Demonstrationszwecken.",
+              contact: "Bei Fragen zu diesem Projekt: simon@heistermann-solutions.de"
+            },
             provider: {
-              title: "Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)",
-              name: "Simon Heistermann",
-              company: "Firma: Simon Heistermann",
-              role: "Frontend-Entwickler & Content Creator",
+              title: "Angaben gemäß § 5 DDG",
+              name: "Simon Maximilian Heistermann",
+              company: "",
+              role: "",
               address: "Mutter-Teresa-Weg 6",
               city: "46325 Borken",
               country: "Deutschland"
@@ -299,26 +413,27 @@ export const legalTranslations = {
             },
             vatId: {
               title: "Umsatzsteuer-ID",
-              description: "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
+              description: "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:",
               number: "DE454100405"
             },
             editorialResponsibility: {
-              title: "Redaktionell verantwortlich",
-              address: "[Adresse wie oben]"
+              title: "Verantwortlich für den Inhalt",
+              description: "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:",
+              address: "Mutter-Teresa-Weg 6, 46325 Borken, Deutschland"
             },
             euDispute: {
               title: "EU-Streitschlichtung",
               description: "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:",
               link: "https://ec.europa.eu/consumers/odr/",
-              email: "Unsere E-Mail-Adresse finden Sie oben im Impressum."
+              email: "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
             },
             consumerDispute: {
-              title: "Verbraucherstreitbeilegung/Universalschlichtungsstelle",
-              description: "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+              title: "Haftung für Links",
+              description: "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich."
             },
             contentLiability: {
               title: "Haftung für Inhalte",
-              paragraph1: "Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+              paragraph1: "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
               paragraph2: "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."
             },
             linkLiability: {
@@ -335,15 +450,34 @@ export const legalTranslations = {
         },
         privacy: {
             title: "Datenschutzerklärung",
+            contents: {
+              title: "Inhaltsverzeichnis",
+              items: [
+                "Verantwortlicher",
+                "Datenschutzbeauftragter",
+                "Welche Daten wir erheben",
+                "Zwecke und Rechtsgrundlage",
+                "Drittanbieter / Auftragsverarbeiter",
+                "Internationale Datenübermittlungen",
+                "Cookies und ähnliche Technologien",
+                "Speicherdauer",
+                "Ihre Rechte",
+                "Aufsichtsbehörde",
+                "Automatisierte Entscheidungsfindung",
+                "Pflicht zur Bereitstellung von Daten",
+                "Änderungen dieser Datenschutzerklärung",
+                "Salvatorische Klausel"
+              ]
+            },
             overview: {
-              title: "1. Datenschutz auf einen Blick",
-              description: "Diese Datenschutzerklärung informiert Sie darüber, wie ich personenbezogene Daten erhebe, verwende und schütze, wenn Sie meine Website besuchen."
+              title: "1. Verantwortlicher",
+              description: "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:"
             },
             responsible: {
-              title: "2. Verantwortlicher",
-              description: "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
-              contact: "Simon Heistermann",
-              company: "Firma: Simon Heistermann",
+              title: "1. Verantwortlicher",
+              description: "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:",
+              contact: "Simon Maximilian Heistermann",
+              company: "",
               address: "Mutter-Teresa-Weg 6",
               city: "46325 Borken",
               country: "Deutschland",
@@ -351,88 +485,172 @@ export const legalTranslations = {
               imprintLink: "Weitere Informationen finden Sie im ",
               imprint: "Impressum"
             },
+            dpo: {
+              title: "2. Datenschutzbeauftragter",
+              description: "Wir sind gemäß § 38 BDSG nicht zur Bestellung eines Datenschutzbeauftragten verpflichtet. Bei Fragen zum Datenschutz kontaktieren Sie uns bitte direkt unter simon@heistermann-solutions.de."
+            },
             dataCollection: {
-              title: "3. Erhebung und Speicherung personenbezogener Daten",
-              description: "Ich verarbeite personenbezogene Daten nur, wenn Sie diese aktiv übermitteln, z. B. über das Kontaktformular oder das Newsletterformular.",
-              items: [
-                "Name, E-Mail-Adresse und ggf. Nachricht (Kontaktformular)",
-                "Name, E-Mail-Adresse (Newsletter-Anmeldung)",
-                "Zugriffs- und Nutzungsdaten (automatisch durch Server oder Drittanbieter)"
-              ]
+              title: "3. Welche Daten wir erheben",
+              description: "Wir verarbeiten personenbezogene Daten, die Sie uns zur Verfügung stellen oder die beim Besuch unserer Website automatisch erhoben werden.",
+              subsections: {
+                contactForm: {
+                  title: "3.1 Kontaktformular-Daten",
+                  description: "Wenn Sie das Kontaktformular nutzen, erheben wir folgende Daten:",
+                  items: [
+                    "Vollständiger Name und E-Mail-Adresse",
+                    "Betreff der Anfrage (Projekt, Zusammenarbeit, Frage, Sonstiges)",
+                    "Ihre Nachricht",
+                    "Einwilligungsbestätigung (Datenschutzerklärung und AGB)"
+                  ]
+                },
+                newsletter: {
+                  title: "3.2 Newsletter-Anmeldung",
+                  description: "Bei der Newsletter-Anmeldung erheben wir:",
+                  items: [
+                    "E-Mail-Adresse",
+                    "Einwilligungsbestätigung",
+                    "Sprachpräferenz"
+                  ]
+                },
+                technical: {
+                  title: "3.3 Technische Daten",
+                  description: "Beim Besuch unserer Website werden folgende Daten automatisch durch unseren Hosting-Anbieter erhoben:",
+                  items: [
+                    "IP-Adresse",
+                    "Browsertyp und -version",
+                    "Betriebssystem",
+                    "Datum, Uhrzeit und Dauer des Zugriffs",
+                    "Verweisende URL",
+                    "Besuchte Seiten"
+                  ]
+                }
+              }
             },
             purpose: {
-              title: "4. Zweck der Datenverarbeitung",
-              description: "Die Verarbeitung erfolgt zur:",
+              title: "4. Zwecke und Rechtsgrundlage",
+              description: "Wir verarbeiten Ihre personenbezogenen Daten zu folgenden Zwecken und auf folgenden Rechtsgrundlagen:",
               items: [
-                "Bearbeitung Ihrer Anfrage",
-                "Versendung meines Newsletters",
-                "Optimierung der Website",
-                "Sicherstellung eines sicheren Betriebs"
+                "Kontaktformular-Bearbeitung — Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf Ihre Anfrage)",
+                "Newsletter-Versand — Art. 6 Abs. 1 lit. a DSGVO (Ihre Einwilligung via Double-Opt-In)",
+                "E-Mail-Benachrichtigungen — Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effektiver Kommunikation)",
+                "Website-Hosting & Sicherheit — Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb einer sicheren Website)"
               ]
             },
             legalBasis: {
-              title: "5. Rechtsgrundlage",
-              description: "Die Datenverarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. a, b und f DSGVO."
+              title: "4. Zwecke und Rechtsgrundlage",
+              description: "Wir verarbeiten Ihre personenbezogenen Daten zu folgenden Zwecken und auf folgenden Rechtsgrundlagen:"
             },
             thirdParties: {
-              title: "6. Weitergabe an Dritte",
-              description: "Eine Weitergabe erfolgt nur, wenn dies gesetzlich erlaubt ist oder Sie eingewilligt haben. Dienstleister wie Hostinganbieter oder Newsletter-Tools erhalten ggf. Zugriff im Rahmen eines Auftragsverarbeitungsvertrags."
+              title: "5. Drittanbieter / Auftragsverarbeiter",
+              description: "Wir nutzen folgende Drittanbieter für den Betrieb unserer Website. Jeder Auftragsverarbeiter hat mit uns einen Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO geschlossen."
+            },
+            thirdPartyProcessors: {
+              items: [
+                {
+                  name: "Render Services, Inc.",
+                  location: "San Francisco, Kalifornien, USA",
+                  purpose: "Backend-Hosting und API-Server.",
+                  data: "Technische Zugriffsdaten (IP-Adresse, Anfrage-Logs), Kontaktformulardaten im Transit."
+                },
+                {
+                  name: "Brevo (Sendinblue)",
+                  location: "Paris, Frankreich / Berlin, Deutschland",
+                  purpose: "Newsletter-Management und E-Mail-Marketing mit Double-Opt-In-Bestätigung.",
+                  data: "E-Mail-Adresse, Sprachpräferenz, Abonnementstatus."
+                },
+                {
+                  name: "KAS Server (All-Inkl)",
+                  location: "Deutschland",
+                  purpose: "SMTP-E-Mail-Zustellung für Kontaktformular-Benachrichtigungen.",
+                  data: "E-Mail-Inhalt, Absender-/Empfängeradressen, Zustellungs-Metadaten."
+                }
+              ]
             },
             newsletter: {
               title: "7. Newsletter",
-              description: "Wenn Sie sich für den Newsletter anmelden, verwenden wir Ihre E-Mail-Adresse und ggf. Ihren Namen, um Ihnen regelmäßig Informationen zu schicken. Die Anmeldung erfolgt im Double-Opt-In-Verfahren.",
-              unsubscribe: "Sie können sich jederzeit abmelden. Ihre Daten werden dann umgehend gelöscht."
+              description: "Wenn Sie sich für den Newsletter anmelden, verwenden wir Ihre E-Mail-Adresse, um Ihnen regelmäßig Informationen zu schicken. Die Anmeldung erfolgt im Double-Opt-In-Verfahren über Brevo.",
+              unsubscribe: "Sie können sich jederzeit abmelden. Ihre Daten werden dann aus unseren Newsletter-Listen gelöscht."
             },
             contactForm: {
               title: "8. Kontaktformular",
-              description: "Wenn Sie mir per Formular Anfragen zukommen lassen, werden Ihre Angaben zwecks Bearbeitung und für den Fall von Anschlussfragen gespeichert."
+              description: "Wenn Sie uns über das Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben (Name, E-Mail, Betreff, Nachricht) an unseren Backend-Server übermittelt und per E-Mail weitergeleitet. Wir speichern Kontaktformular-Eingaben nicht in einer Datenbank — sie werden ausschließlich als E-Mail-Benachrichtigungen zugestellt."
+            },
+            internationalTransfers: {
+              title: "6. Internationale Datenübermittlungen",
+              description: "Unser Backend-Hosting-Anbieter Render hat seinen Sitz in den USA. Datenübermittlungen in die USA erfolgen auf folgender Rechtsgrundlage:",
+              items: [
+                "Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO.",
+                "Brevo verarbeitet Daten primär innerhalb der EU (Frankreich/Deutschland). Für Newsletter-Daten findet keine routinemäßige internationale Übermittlung statt.",
+                "KAS Server (All-Inkl) hat seinen Sitz in Deutschland. Für die E-Mail-Zustellung findet keine internationale Datenübermittlung statt."
+              ]
             },
             thirdPartyServices: {
               title: "9. Einbindung von Diensten und Inhalten Dritter",
-              description: "Auf dieser Website sind Inhalte Dritter eingebunden, z. B. YouTube-Videos, Instagram-Posts, TikToks, die durch externe Server geladen werden. Dabei kann Ihre IP-Adresse an den jeweiligen Dienst übermittelt werden.",
-              providers: "Folgende Drittanbieter können Daten verarbeiten:",
+              description: "Diese Website kann Inhalte Dritter enthalten (z.B. eingebettete Social-Media-Links). Externe Links werden als Service bereitgestellt; ein Klick führt Sie zu Websites Dritter, die eigenen Datenschutzrichtlinien unterliegen.",
+              providers: "Von dieser Website verlinkte Social-Media-Profile:",
               providersList: [
-                "Google Ireland Ltd. (YouTube)",
-                "LinkedIn Ireland Unlimited Company",
-                "Instagram (Meta Platforms Ireland Ltd.)",
-                "TikTok Technology Limited"
+                "LinkedIn (LinkedIn Ireland Unlimited Company)",
+                "Instagram (Meta Platforms Ireland Ltd.)"
               ]
             },
             cookies: {
-              title: "10. Cookies und Tracking",
-              description: "Diese Website verwendet selbst keine Cookies. Drittanbieter (z. B. YouTube) können jedoch Cookies setzen. Beim Einbetten von YouTube-Videos erfolgt dies datenschutzfreundlich über die „nocookie-Variante."
+              title: "7. Cookies und ähnliche Technologien",
+              description: "Diese Website verwendet keine Cookies. Ein Cookie-Consent-Banner ist weder erforderlich noch wird eines angezeigt. Wir verwenden den localStorage Ihres Browsers, um Ihre Spracheinstellung (Englisch/Deutsch) lokal auf Ihrem Gerät zu speichern. Diese Daten verlassen Ihren Browser nicht und werden nicht an unsere Server übermittelt. Sie können sie jederzeit über Ihre Browser-Einstellungen löschen."
+            },
+            retention: {
+              title: "8. Speicherdauer",
+              description: "Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die Zwecke, für die sie erhoben wurden, erforderlich ist:",
+              items: [
+                "Kontaktformular-Eingaben — werden nur per E-Mail zugestellt, nicht in einer Datenbank gespeichert; E-Mail-Aufbewahrung gemäß Anbieter-Richtlinie",
+                "Newsletter-Abonnement-Daten — bis zur Abmeldung, dann Löschung bei Brevo",
+                "Server-/Zugriffsprotokolle (Render) — gemäß Hosting-Anbieter-Richtlinie (typischerweise 30 Tage)",
+                "localStorage-Daten — bis Sie Ihre Browser-Daten löschen"
+              ]
             },
             rights: {
-              title: "11. Ihre Rechte",
+              title: "9. Ihre Rechte",
               items: [
-                "Auskunft über gespeicherte Daten",
-                "Berichtigung unrichtiger Daten",
-                "Löschung Ihrer Daten (Art. 17 DSGVO)",
-                "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
-                "Datenübertragbarkeit (Art. 20 DSGVO)",
-                "Widerspruch gegen Verarbeitung (Art. 21 DSGVO)"
+                "Auskunftsrecht (Art. 15 DSGVO) — Sie können eine Bestätigung verlangen, ob wir Ihre personenbezogenen Daten verarbeiten, und gegebenenfalls eine Kopie dieser Daten erhalten.",
+                "Recht auf Berichtigung (Art. 16 DSGVO) — Sie können die Korrektur unrichtiger oder unvollständiger Daten verlangen.",
+                "Recht auf Löschung (Art. 17 DSGVO) — Sie können die Löschung Ihrer Daten verlangen, vorbehaltlich gesetzlicher Aufbewahrungspflichten.",
+                "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO) — Sie können unter bestimmten Umständen die Einschränkung der Verarbeitung verlangen.",
+                "Recht auf Datenübertragbarkeit (Art. 20 DSGVO) — Sie können Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format anfordern.",
+                "Widerspruchsrecht (Art. 21 DSGVO) — Sie können der Verarbeitung auf Grundlage berechtigter Interessen jederzeit aus Gründen widersprechen, die sich aus Ihrer besonderen Situation ergeben.",
+                "Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO) — Soweit die Verarbeitung auf Ihrer Einwilligung beruht, können Sie diese jederzeit widerrufen, ohne dass die Rechtmäßigkeit der vor dem Widerruf erfolgten Verarbeitung berührt wird."
               ],
-              contact: "Bitte kontaktieren Sie mich dafür über die oben angegebene E-Mail-Adresse."
+              contact: "Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter simon@heistermann-solutions.de. Wir werden innerhalb eines Monats nach Erhalt Ihrer Anfrage antworten."
             },
             complaint: {
-              title: "12. Beschwerderecht",
-              description: "Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde zu beschweren."
+              title: "10. Aufsichtsbehörde",
+              description: "Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren (Art. 77 DSGVO). Die für uns zuständige Aufsichtsbehörde ist: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW), Postfach 20 04 44, 40102 Düsseldorf, Deutschland. Website: www.ldi.nrw.de"
+            },
+            automatedDecisions: {
+              title: "11. Automatisierte Entscheidungsfindung",
+              description: "Wir verwenden keine vollautomatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO."
+            },
+            obligation: {
+              title: "12. Pflicht zur Bereitstellung von Daten",
+              description: "Kontaktformular: Die Angabe Ihres Namens, Ihrer E-Mail-Adresse und Ihrer Nachricht ist erforderlich, damit wir auf Ihre Anfrage antworten können. Ohne diese Angaben können wir Ihre Anfrage nicht bearbeiten. Newsletter: Die Angabe Ihrer E-Mail-Adresse ist für den Empfang des Newsletters erforderlich."
             },
             terms: {
-              title: "14. Allgemeine Geschäftsbedingungen",
+              title: "Allgemeine Geschäftsbedingungen",
               description: "Weitere Informationen zu unseren Geschäftsbedingungen und Nutzungsbedingungen finden Sie in unseren",
               link: "AGBs"
             },
             updates: {
-              title: "13. Aktualität und Änderung dieser Datenschutzerklärung",
-              description: "Diese Datenschutzerklärung ist aktuell gültig und hat den Stand:"
+              title: "13. Änderungen dieser Datenschutzerklärung",
+              description: "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren, um Änderungen in unseren Praktiken oder aus rechtlichen, regulatorischen oder betrieblichen Gründen widerzuspiegeln. Das Datum \"Zuletzt aktualisiert\" unten gibt die jüngste Überarbeitung an."
+            },
+            severability: {
+              title: "14. Salvatorische Klausel",
+              description: "Sollte eine Bestimmung dieser Datenschutzerklärung unwirksam oder undurchführbar sein, bleiben die übrigen Bestimmungen in vollem Umfang wirksam."
             }
         },
         terms: {
             title: "Allgemeine Geschäftsbedingungen",
             general: {
               title: "1. Geltungsbereich",
-              paragraph1: "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen Simon Heistermann (nachfolgend 'Auftragnehmer') und seinen Auftraggebern oder Nutzern (nachfolgend 'Auftraggeber' oder 'Nutzer').",
+              paragraph1: "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen Simon Maximilian Heistermann (nachfolgend 'Auftragnehmer') und seinen Auftraggebern oder Nutzern (nachfolgend 'Auftraggeber' oder 'Nutzer').",
               paragraph2: "Diese AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende AGB des Auftraggebers werden nicht Vertragsbestandteil, es sei denn, ihrer Geltung wird ausdrücklich schriftlich zugestimmt.",
               paragraph3: "Diese AGB gelten auch für alle künftigen Geschäfte zwischen den Parteien, auch wenn sie nicht nochmals ausdrücklich vereinbart werden."
             },
@@ -527,21 +745,21 @@ export const legalTranslations = {
               paragraph2: "."
             },
             termination: {
-              title: "14. Kündigung",
+              title: "15. Kündigung",
               paragraph1: "Verträge können von beiden Parteien mit einer Frist von 4 Wochen zum Monatsende gekündigt werden, sofern nicht anders vereinbart.",
               paragraph2: "Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt."
             },
             applicableLaw: {
-              title: "15. Anwendbares Recht und Gerichtsstand",
+              title: "16. Anwendbares Recht und Gerichtsstand",
               paragraph1: "Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.",
               paragraph2: "Gerichtsstand ist Borken, soweit der Auftraggeber Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist."
             },
             severability: {
-              title: "16. Salvatorische Klausel",
+              title: "17. Salvatorische Klausel",
               paragraph1: "Sollten einzelne Bestimmungen dieser AGB unwirksam oder undurchführbar sein, so wird die Wirksamkeit der übrigen Bestimmungen davon nicht berührt."
             },
             changes: {
-              title: "17. Änderungen der AGB",
+              title: "18. Änderungen der AGB",
               paragraph1: "Der Auftragnehmer behält sich vor, diese AGB jederzeit zu ändern.",
               paragraph2: "Änderungen werden den Kunden rechtzeitig mitgeteilt und gelten als genehmigt, wenn nicht binnen 4 Wochen widersprochen wird."
             },
