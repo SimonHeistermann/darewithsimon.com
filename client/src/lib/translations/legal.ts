@@ -284,7 +284,9 @@ export const legalTranslations = {
             item7: "Speaking engagements and presentations",
             item8: "Workshops and training"
           },
-          paragraph2: "The specific scope of services is defined in separate contracts or project agreements. All services are provided to the best of knowledge and belief, but without warranty for specific results."
+          paragraph2: "The specific scope of services is defined in separate contracts or project agreements. All services are provided to the best of knowledge and belief, but without warranty for specific results.",
+          portfolioDisclaimer: "Note: This website is a portfolio demo. No real services can be booked or ordered through this site. For real services and bookings, please visit:",
+          portfolioDisclaimerLink: "heistermann-solutions.de"
         },
         contractConclusion: {
           title: "3. Contract Conclusion",
@@ -667,7 +669,9 @@ export const legalTranslations = {
                 item7: "Speaking-Engagements und Vorträge",
                 item8: "Workshops und Schulungen"
               },
-              paragraph2: "Der konkrete Leistungsumfang wird in separaten Verträgen oder Projektvereinbarungen festgelegt. Alle Leistungen werden nach bestem Wissen und Gewissen erbracht, jedoch ohne Gewähr auf bestimmte Ergebnisse."
+              paragraph2: "Der konkrete Leistungsumfang wird in separaten Verträgen oder Projektvereinbarungen festgelegt. Alle Leistungen werden nach bestem Wissen und Gewissen erbracht, jedoch ohne Gewähr auf bestimmte Ergebnisse.",
+              portfolioDisclaimer: "Hinweis: Diese Website ist eine Portfolio-Demo. Über diese Seite können keine echten Dienstleistungen gebucht oder bestellt werden. Für echte Services und Buchungen besuche:",
+              portfolioDisclaimerLink: "heistermann-solutions.de"
             },
             contractConclusion: {
               title: "3. Vertragsschluss",

@@ -15,7 +15,19 @@ export default function TermsConditions() {
               {t.terms.title}
             </h1>
             <div className="prose prose-lg max-w-none text-foreground">
-              
+
+              <section className="mb-8 p-6 bg-amber-50 border border-amber-200 rounded-lg">
+                <h2 className="text-2xl font-semibold text-amber-800 mb-4">
+                  {t.legal.trainingProject.title}
+                </h2>
+                <p className="text-amber-900">
+                  {t.legal.trainingProject.description}
+                </p>
+                <p className="mt-2 text-amber-900">
+                  {t.legal.trainingProject.contact}
+                </p>
+              </section>
+
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-foreground mb-4">
                   {t.terms.general.title}
@@ -41,6 +53,14 @@ export default function TermsConditions() {
                   <li>{t.terms.services.list.item8}</li>
                 </ul>
                 <p>{t.terms.services.paragraph2}</p>
+                <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                  <p className="text-sm text-amber-800">
+                    {t.terms.services.portfolioDisclaimer}{" "}
+                    <a href="https://heistermann-solutions.de" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-amber-900">
+                      {t.terms.services.portfolioDisclaimerLink}
+                    </a>
+                  </p>
+                </div>
               </section>
 
               <section className="mb-8">

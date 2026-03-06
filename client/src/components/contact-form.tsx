@@ -281,6 +281,14 @@ export default function ContactForm() {
       <div className="text-center">
         <p className="text-xs text-gray-500">* {t.contact.form.requiredFields}</p>
       </div>
+      <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg">
+        <p className="text-xs text-amber-700">
+          {t.contact.formDisclaimer}{" "}
+          <a href="https://heistermann-solutions.de" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-amber-900">
+            {t.contact.formDisclaimerLink}
+          </a>
+        </p>
+      </div>
       <input
         type="text"
         name="honeypot"

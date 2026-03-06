@@ -79,7 +79,9 @@ export const pageTranslations = {
         services: {
           webDev: {
             title: "Web Development Projects",
-            description: "Angular applications, responsive websites, and JavaScript solutions for your business needs."
+            description: "Angular applications, responsive websites, and JavaScript solutions for your business needs.",
+            disclaimer: "This is a portfolio demo. For real services & bookings, visit:",
+            disclaimerLink: "heistermann-solutions.de"
           },
           collaborations: {
             title: "Collaborations",
@@ -116,6 +118,8 @@ export const pageTranslations = {
           terms: "Terms and Conditions",
           suffix: ". *"
         },
+        formDisclaimer: "This contact form is part of a portfolio demo project. No real orders or bookings are processed here. For real services, visit:",
+        formDisclaimerLink: "heistermann-solutions.de",
         successTitle: "Successfully sent!",
         successDescription: "Your message has been sent. I'll get back to you soon.",
         errorTitle: "Error",
@@ -201,7 +205,9 @@ export const pageTranslations = {
         services: {
           webDev: {
             title: "Webentwicklungs-Projekte",
-            description: "Angular-Anwendungen, responsive Websites und JavaScript-Lösungen für deine Geschäftsanforderungen."
+            description: "Angular-Anwendungen, responsive Websites und JavaScript-Lösungen für deine Geschäftsanforderungen.",
+            disclaimer: "Dies ist eine Portfolio-Demo. Für echte Services & Buchungen besuche:",
+            disclaimerLink: "heistermann-solutions.de"
           },
           collaborations: {
             title: "Kollaborationen", 
@@ -238,6 +244,8 @@ export const pageTranslations = {
           terms: "Allgemeinen Geschäftsbedingungen",
           suffix: "zu. *"
         },
+        formDisclaimer: "Dieses Kontaktformular ist Teil eines Portfolio-Demoprojekts. Hier werden keine echten Bestellungen oder Buchungen verarbeitet. Für echte Services besuche:",
+        formDisclaimerLink: "heistermann-solutions.de",
         successTitle: "Erfolgreich gesendet!",
         successDescription: "Ihre Nachricht wurde versendet. Ich melde mich bald bei Ihnen!",
         errorTitle: "Fehler",

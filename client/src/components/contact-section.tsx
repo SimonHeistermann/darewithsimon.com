@@ -79,6 +79,12 @@ export default function ContactSection() {
                 <div>
                   <h3 className="font-semibold text-[color:var(--foreground2)] mb-1">{t.contact.services.webDev.title}</h3>
                   <p style={{ color: "var(--muted-foreground2)" }}>{t.contact.services.webDev.description}</p>
+                  <p className="text-xs text-amber-700 mt-1">
+                    {t.contact.services.webDev.disclaimer}{" "}
+                    <a href="https://heistermann-solutions.de" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-amber-900">
+                      {t.contact.services.webDev.disclaimerLink}
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
