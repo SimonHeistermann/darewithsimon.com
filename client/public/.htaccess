@@ -1,0 +1,69 @@
+# ============================================
+# .htaccess – darewithsimon (React SPA on Vite)
+# ============================================
+
+# --- HTTPS Redirect ---
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- www to non-www ---
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+# --- SPA Fallback (React Client-Side Routing) ---
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --- Caching Static Assets ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Hashed assets (Vite adds content hash to filenames)
+    <FilesMatch "\.(js|css)$">
+        ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Images & Fonts
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|eot)$">
+        ExpiresDefault "access plus 1 month"
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # HTML (always revalidate for SPA updates)
+    <FilesMatch "\.html$">
+        ExpiresDefault "access plus 0 seconds"
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+
+    # PDF
+    <FilesMatch "\.pdf$">
+        ExpiresDefault "access plus 1 week"
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+</IfModule>
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Disable Directory Listing ---
+Options -Indexes
+
+# --- Block sensitive files ---
+<FilesMatch "(\.env|\.git|\.htpasswd)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
